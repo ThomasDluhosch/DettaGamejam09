@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static UnityEngine.InputSystem.DefaultInputActions;
@@ -14,6 +15,13 @@ public class ClimberController : MonoBehaviour
     [SerializeField] private InputActionReference Jump;
     [SerializeField] private InputActionReference Move;
     [SerializeField] private InputActionReference Drag;
+    
+    
+    [Space(10)]
+    [Header("Colliders")]
+    [SerializeField] private Collider2D groundCheckCollider;
+
+    private bool isGrounded = true;
 
 
     void Start()
@@ -28,7 +36,13 @@ public class ClimberController : MonoBehaviour
 
     void Update()
     {
-        if (Jump.action.WasPressedThisFrame())
+        ///Ground check
+        if (groundCheckCollider != null)
+        {
+            isGrounded = groundCheckCollider.IsTouchingLayers(LayerMask.GetMask("Ground"));
+        }
+
+        if (Jump.action.WasPressedThisFrame() && isGrounded)
         {
             ClimberActions.Climb();
         }
