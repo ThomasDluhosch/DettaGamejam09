@@ -3,28 +3,34 @@ using UnityEngine;
 public class ClimberActions : MonoBehaviour
 {
 
-    [Header("Settings")]
+    [Header("Movement Settings")]
     [SerializeField] private float moveSpeed = 5f;
-    [SerializeField] private float jumpForce = 5f;
 
+
+    [Space(10)]
+    [Header("Jump Settings")]
+    [SerializeField] private float jumpForce = 5f;
+    private bool hasPressedJump = false;
+
+
+    [Space(10)]
     [Header("References")]
     [SerializeField] private Rigidbody2D rb;
-
     private float currentMoveDirection;
-
     private Rigidbody2D draggedBody;
-
     [SerializeField] LayerMask boxLayer;
+
 
     void Start()
     {
         if (rb == null) rb = GetComponent<Rigidbody2D>();
     }
 
+
     void Update()
     {
         // Apply movement velocity
-        if (rb != null) 
+        if (rb != null)
         {
             Vector2 velocity = rb.linearVelocity;
             velocity.x = currentMoveDirection * moveSpeed;
@@ -32,27 +38,33 @@ public class ClimberActions : MonoBehaviour
         }
     }
 
+
+    void FixedUpdate()
+    {
+        if (hasPressedJump)
+        {
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            hasPressedJump = false;
+        }
+    }
+
+
     public void Move(float direction)
     {
         currentMoveDirection = direction;
     }
 
+
     public void Climb()
     {
-        if (rb != null)
-        {
-            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-        }
-        else
-        {
-            Debug.Log("Jumping (No Rigidbody assigned)");
-        }
+        hasPressedJump = true;
     }
+
 
     // todo
     public void Drag(GameObject block, float moveDirection)
     {
-       Rigidbody2D blockRb = block.GetComponent<Rigidbody2D>();
+        Rigidbody2D blockRb = block.GetComponent<Rigidbody2D>();
         if (blockRb == null) return;
 
         if (Mathf.Abs(moveDirection) < 0.01f) return;
