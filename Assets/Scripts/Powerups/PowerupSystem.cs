@@ -36,7 +36,7 @@ public class PowerupSystem : MonoBehaviour
     void Start()
     {
         isGameRunning = true;
-        StartCoroutine(spawnPowerups());
+        //StartCoroutine(spawnPowerups());
     }
 
     private IEnumerator spawnPowerups() {
