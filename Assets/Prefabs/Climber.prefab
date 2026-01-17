@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8136757797958792888}
   - component: {fileID: 7475293212408629378}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BackCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   m_Component:
   - component: {fileID: 284009918376212365}
   - component: {fileID: 5460908498803967038}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FrontCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,7 +166,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6924611006901428989}
   - component: {fileID: 8956303240651646684}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GroundCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -245,7 +245,7 @@ GameObject:
   - component: {fileID: 6248337898083032742}
   - component: {fileID: 6329167637857813781}
   - component: {fileID: 633918278653162049}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -385,7 +385,7 @@ GameObject:
   - component: {fileID: 2976349492964754859}
   - component: {fileID: 3702332690540302202}
   - component: {fileID: 189121235771789414}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Climber
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -445,6 +445,9 @@ MonoBehaviour:
   moveSpeed: 5
   jumpForce: 5
   rb: {fileID: 3702332690540302202}
+  boxLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!50 &3702332690540302202
 Rigidbody2D:
   serializedVersion: 5
