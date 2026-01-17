@@ -12,6 +12,10 @@ public class ClimberActions : MonoBehaviour
 
     private float currentMoveDirection;
 
+    private Rigidbody2D draggedBody;
+
+    [SerializeField] LayerMask boxLayer;
+
     void Start()
     {
         if (rb == null) rb = GetComponent<Rigidbody2D>();
@@ -46,9 +50,17 @@ public class ClimberActions : MonoBehaviour
     }
 
     // todo
-    public void Drag()
+    public void Drag(GameObject block, float moveDirection)
     {
-        Debug.Log("Dragging");
+       Rigidbody2D blockRb = block.GetComponent<Rigidbody2D>();
+        if (blockRb == null) return;
+
+        if (Mathf.Abs(moveDirection) < 0.01f) return;
+
+        blockRb.linearVelocity = new Vector2(
+            moveDirection * 4f,
+            blockRb.linearVelocity.y
+        );
     }
 
 }

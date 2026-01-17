@@ -21,10 +21,15 @@ public class ClimberController : MonoBehaviour
     [Space(10)]
     [Header("Colliders")]
     [SerializeField] private Collider2D groundCheckCollider, grabFrontCheckCollider, grabBackCheckCollider;
+    private Collider2D[] blockColliders;
 
     private bool isGrounded = true;
     private bool blockInFront = false;
     private bool blockInBack = false;
+
+    ContactFilter2D filter = new ContactFilter2D();
+
+    int count = 0;
 
 
     void Start()
@@ -34,11 +39,17 @@ public class ClimberController : MonoBehaviour
         Drag.action.Enable();
 
         ClimberActions = GetComponent<ClimberActions>();
+        blockColliders = new Collider2D[1];
+        filter.SetLayerMask(LayerMask.GetMask("Block"));
     }
 
 
     void Update()
     {
+
+        float moveDirection = Move.action.ReadValue<float>();
+        ClimberActions.Move(moveDirection);
+
         ///Ground check
         if (groundCheckCollider != null)
         {
@@ -49,11 +60,13 @@ public class ClimberController : MonoBehaviour
         if (grabFrontCheckCollider != null)
         {
             blockInFront = grabFrontCheckCollider.IsTouchingLayers(LayerMask.GetMask("Block"));
+            count = grabFrontCheckCollider.Overlap(filter, blockColliders);
         }
 
         if (grabBackCheckCollider != null)
         {
             blockInBack = grabBackCheckCollider.IsTouchingLayers(LayerMask.GetMask("Block"));
+            count = grabBackCheckCollider.Overlap(filter, blockColliders);
         }
 
         if (Jump.action.WasPressedThisFrame() && isGrounded)
@@ -61,13 +74,11 @@ public class ClimberController : MonoBehaviour
             ClimberActions.Climb();
         }
 
-        if (Drag.action.WasPressedThisFrame() && (blockInFront || blockInBack))
+        if (Drag.action.IsPressed() && (blockInFront || blockInBack))
         {
-            ClimberActions.Drag();
+            ClimberActions.Drag(blockColliders[0].gameObject, moveDirection);
         }
 
-        float moveDirection = Move.action.ReadValue<float>();
-        ClimberActions.Move(moveDirection);
-
     }
+
 }
