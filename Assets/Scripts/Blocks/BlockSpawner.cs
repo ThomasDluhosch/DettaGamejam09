@@ -41,12 +41,20 @@ public class BlockSpawner : MonoBehaviour
     {
         if (currentBlockSpawns >= powerUpSpawnThreshhold)
         {
+            if (powerupPrefabs.Length == 0)
+            {
+                currentBlockSpawns = 0;
+                return;
+            }
             int randomIndexPowerups = Random.Range(0, powerupPrefabs.Length);
             currentBlock = Instantiate(powerupPrefabs[randomIndexPowerups], transform.position, Quaternion.identity);
             currentBlockSpawns = 0;
         }
         else
         {
+            if (blockPrefabs.Length == 0)
+                return;
+                
             int randomIndex = Random.Range(0, blockPrefabs.Length);
             currentBlock = Instantiate(blockPrefabs[randomIndex], transform.position, Quaternion.identity);
             currentBlockSpawns++;
