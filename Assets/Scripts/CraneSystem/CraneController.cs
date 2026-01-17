@@ -74,8 +74,4 @@ public class CraneController : MonoBehaviour
                             new Vector3(horizontalLimit, startPoint.position.y, startPoint.position.z));
         }
     }
-
-    public float getMoveSpeed() { return moveSpeed; }
-
-    public void setMoveSpeed(float moveSpeed) { this.moveSpeed = moveSpeed; }
 }

@@ -51,7 +51,6 @@ public class ClimberHealth : MonoBehaviour
         if (collision.gameObject.CompareTag("Block"))
         {
             if (alreadyCollidedBlocks.Contains(collision.collider)) return;
-            if (collision.gameObject.layer == LayerMask.NameToLayer("Powerup")) return;
 
             // check if collision is from above
             ContactPoint2D contact = collision.GetContact(0);
