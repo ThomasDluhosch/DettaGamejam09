@@ -144,10 +144,16 @@ public class ClimberActions : MonoBehaviour
         isJumping = false;
     }
 
+    private bool isDragging = false;
 
     // todo
     public void Drag(GameObject block)
     {
+        if (!isDragging) {
+            isDragging = true;
+            setSpeed(moveSpeed / 2f);
+        }
+
         if (dragJoint != null) return;
 
         Rigidbody2D blockRb = block.GetComponent<Rigidbody2D>();
@@ -175,6 +181,10 @@ public class ClimberActions : MonoBehaviour
         Destroy(dragJoint);
         dragJoint = null;
         draggedBlockRb = null;
+        if (isDragging) {
+            isDragging = false;
+            setSpeed(moveSpeed * 2f);
+        }
     }
 
     public float getSpeed()

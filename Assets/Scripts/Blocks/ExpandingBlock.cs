@@ -25,6 +25,6 @@ public class ExpandingBlock : BaseBlock
 
         Rigidbody.gravityScale = Mathf.Lerp(1f, maxGravityScale, t);
 
-        Rigidbody.mass = 4 * Mathf.Pow(scaleValue, mass);
+        // Rigidbody.mass = 3 * Mathf.Pow(scaleValue, mass);
     }
 }
