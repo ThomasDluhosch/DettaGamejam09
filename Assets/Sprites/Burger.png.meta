@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 54650d985639be34db2d8b15bb01409a
+guid: c9c945a401d05b64f8b5b33314af25b7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7870231862400207233
-    second: drag3_0
+      213: 731375368619335737
+    second: Burger_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: drag3_0
+      name: Burger_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 14
-        height: 16
+        width: 16
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 189435a3e2ea83d60800000000000000
-      internalID: 7870231862400207233
+      spriteID: 930a604d50e562a00800000000000000
+      internalID: 731375368619335737
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      drag3_0: 7870231862400207233
+      Burger_0: 731375368619335737
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
