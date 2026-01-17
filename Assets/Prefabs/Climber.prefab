@@ -859,7 +859,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClimberActions
   moveSpeed: 5
-  jumpForce: 5
+  jumpForce: 2.5
+  jumpMultiplier: 5
+  fallMultiplier: 2.5
+  jumpTime: 0.1
+  jumpCounter: 0
+  hasPressedJump: 0
+  isJumping: 0
+  vecGravity: {x: 0, y: 0}
   rb: {fileID: 3702332690540302202}
   boxLayer:
     serializedVersion: 2
