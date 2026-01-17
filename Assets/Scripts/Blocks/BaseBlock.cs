@@ -4,6 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class BaseBlock : MonoBehaviour
 {
+    [SerializeField] private GameObject hitGroundEffect;
     private Rigidbody2D rb;
     private Collider2D col;
 
@@ -35,5 +36,19 @@ public class BaseBlock : MonoBehaviour
     {
         rb.bodyType = RigidbodyType2D.Dynamic;
         col.isTrigger = false;
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        {
+            if (hitGroundEffect != null)
+            {
+                Vector2 spawnPosition = new Vector2(transform.position.x, collision.contacts[0].point.y);
+                var vfx = Instantiate(hitGroundEffect, spawnPosition, Quaternion.identity);
+
+                Destroy(vfx, 2f);
+            }
+        }
     }
 }

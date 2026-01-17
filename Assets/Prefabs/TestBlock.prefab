@@ -179,5 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bfcff4cd058f32dbd0652d5a066f02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ExpandingBlock
+  hitGroundEffect: {fileID: 3892139522856345200, guid: 698be3a0a094b1c458653b43908f1b73, type: 3}
   expandRate: 2
   maxScale: 2
+  maxGravityScale: 3
