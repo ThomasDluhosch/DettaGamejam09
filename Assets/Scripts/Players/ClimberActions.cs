@@ -10,7 +10,14 @@ public class ClimberActions : MonoBehaviour
     [Space(10)]
     [Header("Jump Settings")]
     [SerializeField] private float jumpForce = 5f;
+    [SerializeField] private float jumpMultiplier = 2f;
+    [SerializeField] private float fallMultiplier = 2.5f;
     private bool hasPressedJump = false;
+    private float jumpTime = 0;
+    private Vector2 vecGravity;
+
+    bool isJumping;
+    float jumpCounter;
 
 
     [Space(10)]
@@ -24,6 +31,7 @@ public class ClimberActions : MonoBehaviour
     void Start()
     {
         if (rb == null) rb = GetComponent<Rigidbody2D>();
+        vecGravity = new Vector2(0, -Physics2D.gravity.y);
     }
 
 
@@ -45,6 +53,23 @@ public class ClimberActions : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             hasPressedJump = false;
+            isJumping = true;
+        }
+
+        if(rb.linearVelocity.y > 0 && isJumping)
+        {
+            jumpCounter += Time.fixedDeltaTime;
+            if (jumpCounter >= jumpTime)
+            {
+                isJumping = false;
+      
+            }
+            rb.linearVelocity += vecGravity * jumpMultiplier * Time.fixedDeltaTime;
+        }
+
+        if (rb.linearVelocity.y < 0)
+        {
+            rb.linearVelocity -= vecGravity * fallMultiplier * Time.fixedDeltaTime;
         }
     }
 
@@ -58,6 +83,8 @@ public class ClimberActions : MonoBehaviour
     public void Climb()
     {
         hasPressedJump = true;
+        isJumping = true;
+        jumpCounter = 0f;
     }
 
 
