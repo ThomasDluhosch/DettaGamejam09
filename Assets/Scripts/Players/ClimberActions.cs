@@ -13,10 +13,10 @@ public class ClimberActions : MonoBehaviour
 
     [Space(10)]
     [Header("Jump Settings")]
-    [SerializeField] private float jumpForce = 5f;
-    [SerializeField] private float jumpMultiplier = 2f;
+    [SerializeField] private float jumpForce = 6f;
+    [SerializeField] private float jumpMultiplier = 10f;
     [SerializeField] private float fallMultiplier = 2.5f;
-    [SerializeField] private float jumpTime = 0;
+    [SerializeField] private float jumpTime = 0.1f;
     [SerializeField] float jumpCounter;
     [SerializeField] private bool hasPressedJump = false;
     [SerializeField] bool isJumping;
@@ -164,5 +164,15 @@ public class ClimberActions : MonoBehaviour
     public void setSpeed(float newSpeed)
     {
         moveSpeed = newSpeed;
+    }
+
+    public void setJumpForce(float newJumpForce)
+    {
+        jumpForce = newJumpForce;
+    }
+
+    public float getJumpForce()
+    {
+        return jumpForce;
     }
 }
