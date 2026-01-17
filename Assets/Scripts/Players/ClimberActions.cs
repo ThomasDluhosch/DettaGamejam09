@@ -5,6 +5,8 @@ public class ClimberActions : MonoBehaviour
 
     [Header("Movement Settings")]
     [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float decelerationDrag = 15f;
+    [SerializeField] private float movementAcceleration = 100f;
 
 
     [Space(10)]
@@ -37,18 +39,31 @@ public class ClimberActions : MonoBehaviour
 
     void Update()
     {
-        // Apply movement velocity
-        if (rb != null)
-        {
-            Vector2 velocity = rb.linearVelocity;
-            velocity.x = currentMoveDirection * moveSpeed;
-            rb.linearVelocity = velocity;
-        }
+        // Logic moved to FixedUpdate for better physics behavior
     }
 
 
     void FixedUpdate()
     {
+        // Moving
+        if (Mathf.Abs(currentMoveDirection) > 0.01f)
+        {
+            rb.linearDamping = 0f;
+            rb.AddForce(new Vector2(currentMoveDirection * movementAcceleration, 0), ForceMode2D.Force);
+            
+            // Clamp only X velocity to preserve Jump/Fall speed
+            Vector2 velocity = rb.linearVelocity;
+            velocity.x = Mathf.Clamp(velocity.x, -moveSpeed, moveSpeed);
+            rb.linearVelocity = velocity;
+        }
+        else
+        {
+            // Deceleration
+            rb.linearDamping = decelerationDrag;
+        }
+
+
+        // Jumping
         if (hasPressedJump)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
