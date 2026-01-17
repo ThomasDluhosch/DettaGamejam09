@@ -112,6 +112,7 @@ public class ClimberActions : MonoBehaviour
         hasPressedJump = true;
         isJumping = true;
         jumpCounter = 0f;
+        
     }
 
     public void StopClimb()
