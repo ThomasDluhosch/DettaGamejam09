@@ -81,4 +81,26 @@ public class PowerupSystem : MonoBehaviour
         yield return new WaitForSeconds(slowDuration);
         cc.setMoveSpeed(cc.getMoveSpeed() + speedDecrease);
     }
+
+    public void playJumpPowerup(float jumpIncrease, float jumpDuration) {
+        StartCoroutine(jumpRoutine(jumpIncrease, jumpDuration));
+    }
+
+    private IEnumerator jumpRoutine(float jumpIncrease, float jumpDuration) {
+        ClimberActions ca = climber.GetComponent<ClimberActions>();
+        ca.setJumpForce(ca.getJumpForce() + jumpIncrease);
+        yield return new WaitForSeconds(jumpDuration);
+        ca.setJumpForce(ca.getJumpForce() - jumpIncrease);
+    }
+
+    public void playShieldPowerup(float shieldDuration) {
+        StartCoroutine(shieldRoutine(shieldDuration));
+    }
+
+    private IEnumerator shieldRoutine(float shieldDuration) {
+        ClimberHealth ch = climber.GetComponent<ClimberHealth>();
+        ch.SetShieldActive(true);
+        yield return new WaitForSeconds(shieldDuration);
+        ch.SetShieldActive(false);
+    }
 }

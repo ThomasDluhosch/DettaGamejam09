@@ -13,10 +13,10 @@ public class ClimberActions : MonoBehaviour
 
     [Space(10)]
     [Header("Jump Settings")]
-    [SerializeField] private float jumpForce = 5f;
-    [SerializeField] private float jumpMultiplier = 2f;
+    [SerializeField] private float jumpForce = 6f;
+    [SerializeField] private float jumpMultiplier = 10f;
     [SerializeField] private float fallMultiplier = 2.5f;
-    [SerializeField] private float jumpTime = 0;
+    [SerializeField] private float jumpTime = 0.1f;
     [SerializeField] float jumpCounter;
     [SerializeField] private bool hasPressedJump = false;
     [SerializeField] bool isJumping;
@@ -32,6 +32,9 @@ public class ClimberActions : MonoBehaviour
     private Rigidbody2D draggedBody;
     [SerializeField] LayerMask boxLayer;
     public bool IsGrounded { get; set; }
+
+    private FixedJoint2D dragJoint;
+    private Rigidbody2D draggedBlockRb;
 
 
     void Start()
@@ -143,17 +146,35 @@ public class ClimberActions : MonoBehaviour
 
 
     // todo
-    public void Drag(GameObject block, float moveDirection)
+    public void Drag(GameObject block)
     {
+        if (dragJoint != null) return;
+
         Rigidbody2D blockRb = block.GetComponent<Rigidbody2D>();
         if (blockRb == null) return;
 
-        if (Mathf.Abs(moveDirection) < 0.01f) return;
+        dragJoint = block.AddComponent<FixedJoint2D>();
+        dragJoint.connectedBody = rb;
+        dragJoint.enableCollision = true;
+        dragJoint.autoConfigureConnectedAnchor = false;
 
-        blockRb.linearVelocity = new Vector2(
-            moveDirection * 4f,
-            blockRb.linearVelocity.y
-        );
+        Vector2 worldOffset = blockRb.position - rb.position;
+
+
+        dragJoint.anchor = blockRb.transform.InverseTransformPoint(blockRb.position);
+        dragJoint.connectedAnchor = rb.transform.InverseTransformPoint(rb.position + worldOffset);
+
+        draggedBlockRb = blockRb;
+
+    }
+
+    public void ReleaseDrag()
+    {
+        if (dragJoint == null) return;
+
+        Destroy(dragJoint);
+        dragJoint = null;
+        draggedBlockRb = null;
     }
 
     public float getSpeed()
@@ -164,5 +185,15 @@ public class ClimberActions : MonoBehaviour
     public void setSpeed(float newSpeed)
     {
         moveSpeed = newSpeed;
+    }
+
+    public void setJumpForce(float newJumpForce)
+    {
+        jumpForce = newJumpForce;
+    }
+
+    public float getJumpForce()
+    {
+        return jumpForce;
     }
 }

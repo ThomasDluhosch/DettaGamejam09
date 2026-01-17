@@ -887,8 +887,8 @@ MonoBehaviour:
   moveSpeed: 5
   decelerationDrag: 15
   movementAcceleration: 100
-  jumpForce: 3
-  jumpMultiplier: 6
+  jumpForce: 6
+  jumpMultiplier: 10
   fallMultiplier: 2.5
   jumpTime: 0.1
   jumpCounter: 0
@@ -896,7 +896,7 @@ MonoBehaviour:
   isJumping: 0
   vecGravity: {x: 0, y: 0}
   Sprite: {fileID: 6329167637857813781}
-  animator: {fileID: 4628684797338966319}
+  animator: {fileID: 0}
   rb: {fileID: 3702332690540302202}
   boxLayer:
     serializedVersion: 2
