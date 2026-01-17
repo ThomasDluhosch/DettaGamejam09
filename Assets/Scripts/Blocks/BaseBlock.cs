@@ -44,8 +44,15 @@ public class BaseBlock : MonoBehaviour
         {
             if (hitGroundEffect != null)
             {
-                Vector2 spawnPosition = new Vector2(transform.position.x, collision.contacts[0].point.y);
-                var vfx = Instantiate(hitGroundEffect, spawnPosition, Quaternion.identity);
+                
+                Vector2 centroid = Vector2.zero;
+                foreach (ContactPoint2D contact in collision.contacts)
+                {
+                    centroid += contact.point;
+                }
+                centroid /= collision.contactCount;
+
+                var vfx = Instantiate(hitGroundEffect, centroid, Quaternion.identity);
 
                 Destroy(vfx, 2f);
             }
