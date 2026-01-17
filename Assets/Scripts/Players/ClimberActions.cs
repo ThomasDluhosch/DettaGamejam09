@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using UnityEngine;
 
 public class ClimberActions : MonoBehaviour
@@ -7,6 +8,7 @@ public class ClimberActions : MonoBehaviour
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float decelerationDrag = 15f;
     [SerializeField] private float movementAcceleration = 100f;
+    private bool isMoving = false;
 
 
     [Space(10)]
@@ -21,25 +23,19 @@ public class ClimberActions : MonoBehaviour
     [SerializeField] private Vector2 vecGravity;
 
 
-
     [Space(10)]
     [Header("References")]
     [SerializeField] private Rigidbody2D rb;
     private float currentMoveDirection;
     private Rigidbody2D draggedBody;
     [SerializeField] LayerMask boxLayer;
+    public bool IsGrounded { get; set; }
 
 
     void Start()
     {
         if (rb == null) rb = GetComponent<Rigidbody2D>();
         vecGravity = new Vector2(0, -Physics2D.gravity.y);
-    }
-
-
-    void Update()
-    {
-        // Logic moved to FixedUpdate for better physics behavior
     }
 
 
@@ -50,16 +46,22 @@ public class ClimberActions : MonoBehaviour
         {
             rb.linearDamping = 0f;
             rb.AddForce(new Vector2(currentMoveDirection * movementAcceleration, 0), ForceMode2D.Force);
-            
-            // Clamp only X velocity to preserve Jump/Fall speed
+
             Vector2 velocity = rb.linearVelocity;
             velocity.x = Mathf.Clamp(velocity.x, -moveSpeed, moveSpeed);
             rb.linearVelocity = velocity;
+            isMoving = true;
         }
         else
         {
-            // Deceleration
-            rb.linearDamping = decelerationDrag;
+            if (IsGrounded)
+            {
+                rb.linearDamping = decelerationDrag;
+            }
+            else
+            {
+                rb.linearDamping = 0f;
+            }
         }
 
 
@@ -73,6 +75,7 @@ public class ClimberActions : MonoBehaviour
 
         if (rb.linearVelocity.y > 0 && isJumping)
         {
+            rb.linearDamping = 0f;
             jumpCounter += Time.fixedDeltaTime;
             if (jumpCounter >= jumpTime)
             {

@@ -54,6 +54,7 @@ public class ClimberController : MonoBehaviour
 
         float moveDirection = Move.action.ReadValue<float>();
         ClimberActions.Move(moveDirection);
+        ClimberActions.IsGrounded = isGrounded();
 
         if (Jump.action.WasPressedThisFrame() && isGrounded())
         {
