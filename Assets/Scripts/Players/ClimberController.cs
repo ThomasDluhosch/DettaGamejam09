@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -23,7 +24,6 @@ public class ClimberController : MonoBehaviour
     [SerializeField] private Collider2D groundCheckCollider, grabFrontCheckCollider, grabBackCheckCollider;
     private Collider2D[] blockColliders;
 
-    private bool isGrounded = true;
     private bool blockInFront = false;
     private bool blockInBack = false;
 
@@ -55,9 +55,7 @@ public class ClimberController : MonoBehaviour
         float moveDirection = Move.action.ReadValue<float>();
         ClimberActions.Move(moveDirection);
 
-        isGrounded = groundCheckCollider.IsTouchingLayers(LayerMask.GetMask("Ground"));
-        
-        if (Jump.action.WasPressedThisFrame() && isGrounded)
+        if (Jump.action.WasPressedThisFrame() && isGrounded())
         {
             ClimberActions.Climb();
         }
@@ -82,6 +80,11 @@ public class ClimberController : MonoBehaviour
             ClimberActions.Drag(blockColliders[0].gameObject, moveDirection);
         }
 
+    }
+
+    private bool isGrounded()
+    {
+        return groundCheckCollider.IsTouchingLayers(LayerMask.GetMask("Ground"));
     }
 
 }
