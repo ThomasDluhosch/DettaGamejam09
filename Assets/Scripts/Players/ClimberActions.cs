@@ -1,3 +1,4 @@
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 public class ClimberActions : MonoBehaviour
@@ -62,5 +63,11 @@ public class ClimberActions : MonoBehaviour
             blockRb.linearVelocity.y
         );
     }
+
+    public void setSpeed(float speed) {
+        moveSpeed = speed;
+    }
+
+    public float getSpeed() { return moveSpeed; }
 
 }

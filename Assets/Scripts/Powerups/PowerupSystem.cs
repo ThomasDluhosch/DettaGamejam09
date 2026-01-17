@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class PowerupSystem : MonoBehaviour
 {
+    public static PowerupSystem Instance { get; private set; }
+
     [Header("SpawnSettings")]
     [SerializeField] GameObject[] powerups;
     [SerializeField] float spawnInterval = 5f;
@@ -11,7 +13,24 @@ public class PowerupSystem : MonoBehaviour
     [SerializeField] Vector2 minSpawnPos;
     [SerializeField] Vector2 maxSpawnPos;
 
+    [Header("PlayerInstances")]
+    [SerializeField] GameObject climber;
+    [SerializeField] GameObject crane;
+
     private bool isGameRunning = false;
+
+    //Singleton
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -39,5 +58,16 @@ public class PowerupSystem : MonoBehaviour
         ];
 
         Instantiate(prefab, spawnPos, Quaternion.identity);
+    }
+
+    public void playSpeedPowerup(float speedIncrease, float speedDuration) {
+        StartCoroutine(speedRoutine(speedIncrease, speedDuration));
+    }
+
+    private IEnumerator speedRoutine(float speedIncrease, float speedDuration) {
+        ClimberActions ca = climber.GetComponent<ClimberActions>();
+        ca.setSpeed(ca.getSpeed() + speedIncrease);
+        yield return new WaitForSeconds(speedDuration);
+        ca.setSpeed(ca.getSpeed() - speedIncrease);
     }
 }

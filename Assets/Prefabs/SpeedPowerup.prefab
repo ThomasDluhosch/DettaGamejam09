@@ -151,3 +151,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3532ad7b564877d4ca163aa1fc096f56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpeedPowerup
+  powerupDuration: 3
+  powerupSpeed: 5

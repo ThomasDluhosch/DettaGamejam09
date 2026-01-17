@@ -1,9 +1,15 @@
+using System.Collections;
 using UnityEngine;
 
 public class SpeedPowerup : Powerup
 {
-    protected override void activatePowerup()
+    [SerializeField] private float powerupDuration;
+    [SerializeField] private float powerupSpeed;
+
+    protected override void activatePowerup(GameObject player)
     {
-        Debug.Log("Pickedup Powerup");
+        Debug.Log("Activate Speed");
+        PowerupSystem.Instance.playSpeedPowerup(powerupSpeed, powerupDuration);
+        Destroy(gameObject);
     }
 }
