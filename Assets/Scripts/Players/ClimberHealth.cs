@@ -9,6 +9,7 @@ public class ClimberHealth : MonoBehaviour
     [SerializeField] private float hitAngleThreshold = 80f;
     [SerializeField] private UnityEvent onDeath;
     [SerializeField] private UnityEvent<float> onHealthChanged;
+    [SerializeField] private UnityEvent<float> onDamageTaken;
 
     private bool shieldActive = false;
 
@@ -31,7 +32,7 @@ public class ClimberHealth : MonoBehaviour
         if (shieldActive || isDead) return;
 
         Debug.Log($"Climber took {damage} damage.");
-        
+        onDamageTaken.Invoke(damage);
         health -= damage;
         onHealthChanged.Invoke(health);
         if (health <= 0f)

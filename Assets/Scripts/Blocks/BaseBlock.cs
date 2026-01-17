@@ -4,8 +4,11 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class BaseBlock : MonoBehaviour
 {
+    [SerializeField] private GameObject hitGroundEffect;
+    [SerializeField] private GameObject dragOnGroundEffect;
     private Rigidbody2D rb;
     private Collider2D col;
+    private GameObject dragVFXInstance;
 
     public Rigidbody2D Rigidbody => rb;
     public Collider2D Collider => col;
@@ -16,6 +19,12 @@ public class BaseBlock : MonoBehaviour
 
         rb.bodyType = RigidbodyType2D.Kinematic;
         col.isTrigger = true;
+
+        if (dragOnGroundEffect != null)
+        {
+            dragVFXInstance = Instantiate(dragOnGroundEffect, transform.position, Quaternion.identity, transform);
+            dragVFXInstance.SetActive(false);
+        }
     }
     
     /// <summary>
@@ -35,5 +44,51 @@ public class BaseBlock : MonoBehaviour
     {
         rb.bodyType = RigidbodyType2D.Dynamic;
         col.isTrigger = false;
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        {
+            if (hitGroundEffect != null)
+            {
+                
+                Vector2 centroid = Vector2.zero;
+                foreach (ContactPoint2D contact in collision.contacts)
+                {
+                    centroid += contact.point;
+                }
+                centroid /= collision.contactCount;
+
+                var vfx = Instantiate(hitGroundEffect, centroid, Quaternion.identity);
+
+                Destroy(vfx, 2f);
+            }
+        }
+    }
+
+    void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        {
+            if (dragVFXInstance != null)
+            {
+                if (rb.linearVelocityX > .1f)
+                {
+                    dragVFXInstance.SetActive(true);
+                    dragVFXInstance.transform.rotation = Quaternion.Euler(0, 180, 0);
+                }
+                else if (rb.linearVelocityX < -.1f)
+                {
+                    dragVFXInstance.SetActive(true);
+                    dragVFXInstance.transform.rotation = Quaternion.Euler(0, 0, 0);
+                }
+                else
+                {
+                    dragVFXInstance.SetActive(false);
+                }
+                dragVFXInstance.transform.position = new Vector3(transform.position.x, collision.contacts[0].point.y, transform.position.z);
+            }
+        }
     }
 }
