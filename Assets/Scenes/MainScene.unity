@@ -1124,11 +1124,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2976349492964754859, guid: ca389f2d5773a4fd6ad5105426bdef20, type: 3}
       propertyPath: jumpForce
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2976349492964754859, guid: ca389f2d5773a4fd6ad5105426bdef20, type: 3}
       propertyPath: jumpMultiplier
-      value: 6
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3702332690540302202, guid: ca389f2d5773a4fd6ad5105426bdef20, type: 3}
       propertyPath: m_Constraints
