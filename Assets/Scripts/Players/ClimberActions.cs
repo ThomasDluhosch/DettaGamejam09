@@ -40,14 +40,11 @@ public class ClimberActions : MonoBehaviour
 
     public void Climb()
     {
-        if (rb != null)
-        {
-            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-        }
-        else
-        {
-            Debug.Log("Jumping (No Rigidbody assigned)");
-        }
+
+        hasPressedJump = true;
+        isJumping = true;
+        jumpCounter = 0f;
+
     }
 
     // todo
