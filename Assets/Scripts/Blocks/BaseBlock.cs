@@ -1,8 +1,11 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class BaseBlock : MonoBehaviour
 {
     private Rigidbody2D rb;
+
+    public Rigidbody2D Rigidbody => rb;
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
