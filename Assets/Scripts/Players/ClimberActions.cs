@@ -12,12 +12,12 @@ public class ClimberActions : MonoBehaviour
     [SerializeField] private float jumpForce = 5f;
     [SerializeField] private float jumpMultiplier = 2f;
     [SerializeField] private float fallMultiplier = 2.5f;
-    private bool hasPressedJump = false;
-    private float jumpTime = 0;
-    private Vector2 vecGravity;
+    [SerializeField] private float jumpTime = 0;
+    [SerializeField] float jumpCounter;
+    [SerializeField] private bool hasPressedJump = false;
+    [SerializeField] bool isJumping;
+    [SerializeField] private Vector2 vecGravity;
 
-    bool isJumping;
-    float jumpCounter;
 
 
     [Space(10)]
@@ -56,18 +56,27 @@ public class ClimberActions : MonoBehaviour
             isJumping = true;
         }
 
-        if(rb.linearVelocity.y > 0 && isJumping)
+        if (rb.linearVelocity.y > 0 && isJumping)
         {
             jumpCounter += Time.fixedDeltaTime;
             if (jumpCounter >= jumpTime)
             {
                 isJumping = false;
-      
+
             }
-            rb.linearVelocity += vecGravity * jumpMultiplier * Time.fixedDeltaTime;
+
+            float t = jumpCounter / jumpTime;
+            float currentJumpM = jumpMultiplier;
+
+            if (t > .5f)
+            {
+                currentJumpM = jumpMultiplier * (1 - t);
+            }
+
+            rb.linearVelocity += vecGravity * currentJumpM * Time.fixedDeltaTime;
         }
 
-        if (rb.linearVelocity.y < 0)
+        if (rb.linearVelocity.y < 0 || !isJumping)
         {
             rb.linearVelocity -= vecGravity * fallMultiplier * Time.fixedDeltaTime;
         }
@@ -85,6 +94,11 @@ public class ClimberActions : MonoBehaviour
         hasPressedJump = true;
         isJumping = true;
         jumpCounter = 0f;
+    }
+
+    public void StopClimb()
+    {
+        isJumping = false;
     }
 
 

@@ -60,6 +60,11 @@ public class ClimberController : MonoBehaviour
             ClimberActions.Climb();
         }
 
+        if(Jump.action.WasReleasedThisFrame())
+        {
+            ClimberActions.StopClimb();
+        }
+
         //Grab Check
         if (grabFrontCheckCollider != null)
         {
