@@ -45,4 +45,18 @@ public class GameManager : Singleton<GameManager>
         Time.timeScale = 0f;
         Debug.Log("Game Over.");
     }
+
+    public void RestartGame()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1f;
+        Debug.Log("Game Restarted.");
+    }
+
+    public void MainMenu()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
+        Time.timeScale = 1f;
+        Debug.Log("Returned to Main Menu.");
+    }
 }
