@@ -25,6 +25,8 @@ public class ClimberActions : MonoBehaviour
 
     [Space(10)]
     [Header("References")]
+    [SerializeField] private SpriteRenderer Sprite;
+    [SerializeField] private Animator animator;
     [SerializeField] private Rigidbody2D rb;
     private float currentMoveDirection;
     private Rigidbody2D draggedBody;
@@ -64,6 +66,15 @@ public class ClimberActions : MonoBehaviour
             }
         }
 
+        //Setting Animator Properties
+        if (isMoving)
+        {
+            animator.SetBool("isMoving", true);
+        } else if (!isMoving)
+        {
+            animator.SetBool("isMoving", false);
+        }
+
 
         // Jumping
         if (hasPressedJump)
@@ -71,6 +82,7 @@ public class ClimberActions : MonoBehaviour
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             hasPressedJump = false;
             isJumping = true;
+            animator.SetBool("isJumping", true);
         }
 
         if (rb.linearVelocity.y > 0 && isJumping)
@@ -104,6 +116,15 @@ public class ClimberActions : MonoBehaviour
     public void Move(float direction)
     {
         currentMoveDirection = direction;
+        switch (direction)
+        {
+            case 1:
+                Sprite.flipX = true;
+                break;
+            case -1:
+                Sprite.flipX = false;
+                break;
+        }
     }
 
 

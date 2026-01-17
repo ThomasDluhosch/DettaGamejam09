@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 436dce1beadc1483095e823c3c8fece9
+guid: 51d4a9f9858441b448f32b7ea493c41f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8241742004308540848
-    second: Krantest02_0
+      213: -1750533411352022680
+    second: char_idle_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Krantest02_0
+      name: char_idle_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 151
-        height: 90
+        width: 15
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0bdf931bfac806270800000000000000
-      internalID: 8241742004308540848
+      spriteID: 861f8e8132bd4b7e0800000000000000
+      internalID: -1750533411352022680
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Krantest02_0: 8241742004308540848
+      char_idle_0: -1750533411352022680
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
