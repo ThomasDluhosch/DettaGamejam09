@@ -1252,6 +1252,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8389876144765547251, guid: ca389f2d5773a4fd6ad5105426bdef20, type: 3}
       insertIndex: 3
       addedObject: {fileID: 1686148048}
+    - targetCorrespondingSourceObject: {fileID: 8389876144765547251, guid: ca389f2d5773a4fd6ad5105426bdef20, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1686148054}
   m_SourcePrefab: {fileID: 100100000, guid: ca389f2d5773a4fd6ad5105426bdef20, type: 3}
 --- !u!1 &1686148047 stripped
 GameObject:
@@ -1275,7 +1278,19 @@ MonoBehaviour:
   hitAngleThreshold: 80
   onDeath:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 2be0b9c83a1d18367913d4d7c61b6acd, type: 2}
+        m_TargetAssemblyTypeName: GameEvent, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onHealthChanged:
     m_PersistentCalls:
       m_Calls:
@@ -1296,6 +1311,34 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7348717956484436680, guid: ca389f2d5773a4fd6ad5105426bdef20, type: 3}
   m_PrefabInstance: {fileID: 1686148046}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1686148054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686148047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76e193cea97abc161806b06e35807f8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ClimberHeight
+  winHeight: 4
+  onWin:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: e1f58c1e289397214aecada5c6c8bfd7, type: 2}
+        m_TargetAssemblyTypeName: GameEvent, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1720631574
 GameObject:
   m_ObjectHideFlags: 0
