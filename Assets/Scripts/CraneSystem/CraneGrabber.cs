@@ -21,6 +21,9 @@ public class CraneGrabber : MonoBehaviour
 
     public void PickUp()
     {
+        if (heldBlock != null)
+            return;
+            
         if (Vector2.Distance(grabPoint.position, blockSpawner.transform.position) > grabDistance)
             return;
 

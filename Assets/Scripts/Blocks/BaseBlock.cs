@@ -1,14 +1,21 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Collider2D))]
 public class BaseBlock : MonoBehaviour
 {
     private Rigidbody2D rb;
+    private Collider2D col;
 
     public Rigidbody2D Rigidbody => rb;
+    public Collider2D Collider => col;
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        col = GetComponent<Collider2D>();
+
+        rb.bodyType = RigidbodyType2D.Kinematic;
+        col.isTrigger = true;
     }
     
     /// <summary>
@@ -27,5 +34,6 @@ public class BaseBlock : MonoBehaviour
     public virtual void OnCraneDrop()
     {
         rb.bodyType = RigidbodyType2D.Dynamic;
+        col.isTrigger = false;
     }
 }
