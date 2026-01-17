@@ -1,6 +1,7 @@
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 using static UnityEngine.InputSystem.DefaultInputActions;
@@ -26,6 +27,7 @@ public class ClimberController : MonoBehaviour
 
     private bool blockInFront = false;
     private bool blockInBack = false;
+    float moveDirection;
 
     ContactFilter2D filter = new ContactFilter2D();
 
@@ -52,7 +54,7 @@ public class ClimberController : MonoBehaviour
     void Update()
     {
 
-        float moveDirection = Move.action.ReadValue<float>();
+        moveDirection = Move.action.ReadValue<float>();
         ClimberActions.Move(moveDirection);
         ClimberActions.IsGrounded = isGrounded();
 
@@ -66,6 +68,12 @@ public class ClimberController : MonoBehaviour
             ClimberActions.StopClimb();
         }
 
+
+
+    }
+
+    private void FixedUpdate()
+    {
         //Grab Check
         if (grabFrontCheckCollider != null)
         {
@@ -83,9 +91,12 @@ public class ClimberController : MonoBehaviour
 
         if (Drag.action.IsPressed() && (blockInFront || blockInBack))
         {
-            ClimberActions.Drag(blockColliders[0].gameObject, moveDirection);
+            ClimberActions.Drag(blockColliders[0].gameObject);
         }
-
+        else
+        {
+            ClimberActions.ReleaseDrag();
+        }
     }
 
     private bool isGrounded()
