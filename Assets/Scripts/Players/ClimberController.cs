@@ -1,4 +1,3 @@
-using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -17,13 +16,14 @@ public class ClimberController : MonoBehaviour
     [SerializeField] private InputActionReference Jump;
     [SerializeField] private InputActionReference Move;
     [SerializeField] private InputActionReference Drag;
-
-
+    
+    
     [Space(10)]
     [Header("Colliders")]
     [SerializeField] private Collider2D groundCheckCollider, grabFrontCheckCollider, grabBackCheckCollider;
     private Collider2D[] blockColliders;
 
+    private bool isGrounded = true;
     private bool blockInFront = false;
     private bool blockInBack = false;
 
@@ -41,11 +41,6 @@ public class ClimberController : MonoBehaviour
         ClimberActions = GetComponent<ClimberActions>();
         blockColliders = new Collider2D[1];
         filter.SetLayerMask(LayerMask.GetMask("Block"));
-
-        if (groundCheckCollider == null)
-        {
-            Debug.LogWarning("Ground Check Collider not assigned in ClimberController");
-        }
     }
 
 
@@ -54,16 +49,11 @@ public class ClimberController : MonoBehaviour
 
         float moveDirection = Move.action.ReadValue<float>();
         ClimberActions.Move(moveDirection);
-        ClimberActions.IsGrounded = isGrounded();
 
-        if (Jump.action.WasPressedThisFrame() && isGrounded())
+        ///Ground check
+        if (groundCheckCollider != null)
         {
-            ClimberActions.Climb();
-        }
-
-        if(Jump.action.WasReleasedThisFrame())
-        {
-            ClimberActions.StopClimb();
+            isGrounded = groundCheckCollider.IsTouchingLayers(LayerMask.GetMask("Ground"));
         }
 
         //Grab Check
@@ -79,18 +69,16 @@ public class ClimberController : MonoBehaviour
             count = grabBackCheckCollider.Overlap(filter, blockColliders);
         }
 
-
+        if (Jump.action.WasPressedThisFrame() && isGrounded)
+        {
+            ClimberActions.Climb();
+        }
 
         if (Drag.action.IsPressed() && (blockInFront || blockInBack))
         {
             ClimberActions.Drag(blockColliders[0].gameObject, moveDirection);
         }
 
-    }
-
-    private bool isGrounded()
-    {
-        return groundCheckCollider.IsTouchingLayers(LayerMask.GetMask("Ground"));
     }
 
 }
