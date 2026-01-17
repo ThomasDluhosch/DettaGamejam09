@@ -29,7 +29,7 @@ public class MainMenu : MonoBehaviour
 
     void PlayGame()
     {
-        // SceneManager.LoadScene("");
+        SceneManager.LoadScene("MainScene");
         Debug.LogWarning("Keine Szene ausgewählt!");
     }
 
