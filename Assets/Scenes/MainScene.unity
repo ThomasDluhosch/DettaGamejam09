@@ -310,6 +310,7 @@ MonoBehaviour:
   blockPrefabs:
   - {fileID: -2772483321172087522, guid: 53c9bf0ebad641824a8cd3f449c0abda, type: 3}
   powerupPrefabs:
+  - {fileID: 214760767308748635, guid: ad3e57c85f4d9447dacc783b5c41b3f5, type: 3}
   - {fileID: 1020337396667248937, guid: 6c8e314306aaa4531ae63efb611dc0f4, type: 3}
   - {fileID: 7164714750173864904, guid: 1f82966a2f1b1504b8e5e7dc778ed040, type: 3}
   - {fileID: 8668221529312857492, guid: 203944b30a10cf14b9ad7ac35eacda29, type: 3}

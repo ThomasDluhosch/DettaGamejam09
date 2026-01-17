@@ -10,6 +10,8 @@ public class ClimberHealth : MonoBehaviour
     [SerializeField] private UnityEvent onDeath;
     [SerializeField] private UnityEvent<float> onHealthChanged;
 
+    private bool shieldActive = false;
+
     private bool isDead = false;
     private List<Collider2D> alreadyCollidedBlocks = new List<Collider2D>();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -26,7 +28,7 @@ public class ClimberHealth : MonoBehaviour
 
     void TakeDamage(float damage)
     {
-        if (isDead) return;
+        if (shieldActive || isDead) return;
 
         Debug.Log($"Climber took {damage} damage.");
         
@@ -75,5 +77,10 @@ public class ClimberHealth : MonoBehaviour
         Gizmos.DrawLine(from, to);
         to = from + Quaternion.Euler(0, 0, -hitAngleThreshold) * Vector3.down * 1f;
         Gizmos.DrawLine(from, to);
+    }
+
+    public void SetShieldActive(bool isActive)
+    {
+        shieldActive = isActive;
     }
 }

@@ -92,4 +92,15 @@ public class PowerupSystem : MonoBehaviour
         yield return new WaitForSeconds(jumpDuration);
         ca.setJumpForce(ca.getJumpForce() - jumpIncrease);
     }
+
+    public void playShieldPowerup(float shieldDuration) {
+        StartCoroutine(shieldRoutine(shieldDuration));
+    }
+
+    private IEnumerator shieldRoutine(float shieldDuration) {
+        ClimberHealth ch = climber.GetComponent<ClimberHealth>();
+        ch.SetShieldActive(true);
+        yield return new WaitForSeconds(shieldDuration);
+        ch.SetShieldActive(false);
+    }
 }
