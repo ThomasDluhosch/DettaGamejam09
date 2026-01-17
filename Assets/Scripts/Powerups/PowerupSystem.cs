@@ -70,4 +70,15 @@ public class PowerupSystem : MonoBehaviour
         yield return new WaitForSeconds(speedDuration);
         ca.setSpeed(ca.getSpeed() - speedIncrease);
     }
+
+    public void playSlowPowerup(float speedDecrease, float slowDuration) {
+        StartCoroutine(slowRoutine(speedDecrease, slowDuration));
+    }
+
+    private IEnumerator slowRoutine(float speedDecrease, float slowDuration) {
+        CraneController cc = crane.GetComponent<CraneController>();
+        cc.setMoveSpeed(cc.getMoveSpeed() - speedDecrease);
+        yield return new WaitForSeconds(slowDuration);
+        cc.setMoveSpeed(cc.getMoveSpeed() + speedDecrease);
+    }
 }
