@@ -896,7 +896,7 @@ MonoBehaviour:
   isJumping: 0
   vecGravity: {x: 0, y: 0}
   Sprite: {fileID: 6329167637857813781}
-  animator: {fileID: 0}
+  animator: {fileID: 4628684797338966319}
   rb: {fileID: 3702332690540302202}
   boxLayer:
     serializedVersion: 2
