@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -49,6 +50,8 @@ public class ClimberController : MonoBehaviour
         {
             Debug.LogWarning("Ground Check Collider not assigned in ClimberController");
         }
+
+        SetUpInput();
     }
 
 
@@ -96,4 +99,18 @@ public class ClimberController : MonoBehaviour
         return groundCheckCollider.IsTouchingLayers(LayerMask.GetMask("Ground")) || groundCheckCollider.IsTouchingLayers(LayerMask.GetMask("Block"));
     }
 
+
+    void SetUpInput()
+    {
+        List<InputDevice> devices = new List<InputDevice>
+        {
+            Keyboard.current
+        };
+
+        if (Gamepad.all.Count > 1)
+        {
+            devices.Add(Gamepad.all[1]);
+        }
+        Jump.asset.devices = devices.ToArray();
+    }
 }

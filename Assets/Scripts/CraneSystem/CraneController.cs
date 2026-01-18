@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
 public class CraneController : MonoBehaviour
 {
@@ -34,7 +36,21 @@ public class CraneController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        SetUpInput();
+    }
+
+    void SetUpInput()
+    {
+        List<InputDevice> devices = new List<InputDevice>
+        {
+            Keyboard.current
+        };
+
+        if (Gamepad.all.Count > 0)
+        {
+            devices.Add(Gamepad.all[0]);
+        }
+        craneInput.devices = devices.ToArray();
     }
 
     // Update is called once per frame
