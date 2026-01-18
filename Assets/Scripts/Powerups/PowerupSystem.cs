@@ -29,14 +29,9 @@ public class PowerupSystem : MonoBehaviour
     //Singleton
     private void Awake()
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
 
         Instance = this;
-        DontDestroyOnLoad(gameObject);
+  
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
