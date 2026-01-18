@@ -639,6 +639,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -764,6 +765,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98989d7066f0672b5a5378e152b2e8b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraShake
+  frequency: 25
+  amplitude: 0.3
 --- !u!1 &557930206
 GameObject:
   m_ObjectHideFlags: 0
@@ -2576,6 +2591,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3867244379961338028, guid: ca389f2d5773a4fd6ad5105426bdef20, type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 1686148047}
     - target: {fileID: 6068910646382001098, guid: ca389f2d5773a4fd6ad5105426bdef20, type: 3}
       propertyPath: Drag
       value: 
@@ -2600,6 +2619,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6329167637857813781, guid: ca389f2d5773a4fd6ad5105426bdef20, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d96da0ec27c36d12e912bdc5a99a061f, type: 2}
     - target: {fileID: 7348717956484436680, guid: ca389f2d5773a4fd6ad5105426bdef20, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.36904
@@ -2660,6 +2683,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1131176939}
   m_SourcePrefab: {fileID: 100100000, guid: ca389f2d5773a4fd6ad5105426bdef20, type: 3}
+--- !u!212 &1686148047 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 6329167637857813781, guid: ca389f2d5773a4fd6ad5105426bdef20, type: 3}
+  m_PrefabInstance: {fileID: 1686148046}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1693524098 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8389876144765547251, guid: ca389f2d5773a4fd6ad5105426bdef20, type: 3}
