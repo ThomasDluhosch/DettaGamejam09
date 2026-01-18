@@ -17,6 +17,12 @@ public class PowerupSystem : MonoBehaviour
     [SerializeField] GameObject climber;
     [SerializeField] GameObject crane;
 
+
+    [Header("Powerup Player Effects")]
+    [SerializeField] SpriteRenderer playerSpriteRenderer;
+    [SerializeField] float powerupEffectSpeed = 10f;
+
+
     private bool isGameRunning = false;
 
     //Singleton
@@ -67,8 +73,10 @@ public class PowerupSystem : MonoBehaviour
     private IEnumerator speedRoutine(float speedIncrease, float speedDuration) {
         ClimberActions ca = climber.GetComponent<ClimberActions>();
         ca.setSpeed(ca.getSpeed() + speedIncrease);
+        PowerupEffectOnPlayer();
         yield return new WaitForSeconds(speedDuration);
         ca.setSpeed(ca.getSpeed() - speedIncrease);
+        ResetPowerupEffectOnPlayer();
     }
 
     public void playSlowPowerup(float speedDecrease, float slowDuration) {
@@ -78,8 +86,10 @@ public class PowerupSystem : MonoBehaviour
     private IEnumerator slowRoutine(float speedDecrease, float slowDuration) {
         CraneController cc = crane.GetComponent<CraneController>();
         cc.setMoveSpeed(cc.getMoveSpeed() - speedDecrease);
+        PowerupEffectOnPlayer();
         yield return new WaitForSeconds(slowDuration);
         cc.setMoveSpeed(cc.getMoveSpeed() + speedDecrease);
+        ResetPowerupEffectOnPlayer();
     }
 
     public void playJumpPowerup(float jumpIncrease, float jumpDuration) {
@@ -89,8 +99,10 @@ public class PowerupSystem : MonoBehaviour
     private IEnumerator jumpRoutine(float jumpIncrease, float jumpDuration) {
         ClimberActions ca = climber.GetComponent<ClimberActions>();
         ca.setJumpForce(ca.getJumpForce() + jumpIncrease);
+        PowerupEffectOnPlayer();
         yield return new WaitForSeconds(jumpDuration);
         ca.setJumpForce(ca.getJumpForce() - jumpIncrease);
+        ResetPowerupEffectOnPlayer();
     }
 
     public void playShieldPowerup(float shieldDuration) {
@@ -100,7 +112,31 @@ public class PowerupSystem : MonoBehaviour
     private IEnumerator shieldRoutine(float shieldDuration) {
         ClimberHealth ch = climber.GetComponent<ClimberHealth>();
         ch.SetShieldActive(true);
+        PowerupEffectOnPlayer();
         yield return new WaitForSeconds(shieldDuration);
         ch.SetShieldActive(false);
+        ResetPowerupEffectOnPlayer();
+    }
+
+    private void PowerupEffectOnPlayer()
+    {
+        if (playerSpriteRenderer != null)
+        {
+            MaterialPropertyBlock propBlock = new MaterialPropertyBlock();
+            playerSpriteRenderer.GetPropertyBlock(propBlock);
+            propBlock.SetFloat("_PowerUpSpeed", powerupEffectSpeed);
+            playerSpriteRenderer.SetPropertyBlock(propBlock);
+        }
+    }
+
+    private void ResetPowerupEffectOnPlayer()
+    {
+        if (playerSpriteRenderer != null)
+        {
+            MaterialPropertyBlock propBlock = new MaterialPropertyBlock();
+            playerSpriteRenderer.GetPropertyBlock(propBlock);
+            propBlock.SetFloat("_PowerUpSpeed", 0f);
+            playerSpriteRenderer.SetPropertyBlock(propBlock);
+        }
     }
 }
