@@ -61,7 +61,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 399177df72b7f1b299929ae25494db4f, type: 2}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -181,14 +181,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::JellyBlock
   hitGroundEffect: {fileID: 3892139522856345200, guid: 698be3a0a094b1c458653b43908f1b73, type: 3}
   dragOnGroundEffect: {fileID: 0}
-  wobbleSpeed: 2
-  wobbleIntensity: 0.1
-  wobbleDecay: 3
-  impactMultiplier: 0.3
-  jellyFrequency: 3
-  jellyAmplitude: 0.03
-  maxSquash: 1
-  minSquash: 0.8
-  squashSpeed: 6
-  squashDecay: 10
-  bounciness: 0.6
