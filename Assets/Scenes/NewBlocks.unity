@@ -461,8 +461,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlockSpawner
   blockPrefabs:
-  - {fileID: -2772483321172087522, guid: 53c9bf0ebad641824a8cd3f449c0abda, type: 3}
-  - {fileID: 4632207730788680111, guid: afd03cf6342d7519f862f1817531259f, type: 3}
+  - blockPrefab: {fileID: -2772483321172087522, guid: 53c9bf0ebad641824a8cd3f449c0abda, type: 3}
+    spawnProbability: 1
+  - blockPrefab: {fileID: 4632207730788680111, guid: afd03cf6342d7519f862f1817531259f, type: 3}
+    spawnProbability: 0.3
   powerupPrefabs:
   - {fileID: 214760767308748635, guid: ad3e57c85f4d9447dacc783b5c41b3f5, type: 3}
   - {fileID: 1020337396667248937, guid: 6c8e314306aaa4531ae63efb611dc0f4, type: 3}
