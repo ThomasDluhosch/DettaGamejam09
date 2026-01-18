@@ -656,7 +656,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Beenden
+  m_text: Quit
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 33cf69791ed2c47f1888c868ab2481c5, type: 2}
   m_sharedMaterial: {fileID: -2144506378816997197, guid: 33cf69791ed2c47f1888c868ab2481c5, type: 2}
@@ -1543,7 +1543,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -4811800260779981606, guid: bea2a6a5ade69ea41ada8ca30d3fb753, type: 2}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 06fc6c01a4d7140b79b26209869f7c25, type: 3}
+  m_Resource: {fileID: 8300000, guid: 1f5fb7a2a22cc4a4c91b815aba6737e6, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -2451,6 +2451,8 @@ MonoBehaviour:
   playButton: {fileID: 1421223085}
   optionsButton: {fileID: 514229220}
   quitButton: {fileID: 2091260919}
+  menuMusic: {fileID: 8300000, guid: 1f5fb7a2a22cc4a4c91b815aba6737e6, type: 3}
+  gameMusic: {fileID: 8300000, guid: 06fc6c01a4d7140b79b26209869f7c25, type: 3}
 --- !u!114 &1509159668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2934,7 +2936,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Einstellungen
+  m_text: Settings
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 33cf69791ed2c47f1888c868ab2481c5, type: 2}
   m_sharedMaterial: {fileID: -2144506378816997197, guid: 33cf69791ed2c47f1888c868ab2481c5, type: 2}
