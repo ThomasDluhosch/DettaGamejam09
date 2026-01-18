@@ -21,6 +21,7 @@ public class PowerupSystem : MonoBehaviour
     [Header("Powerup Player Effects")]
     [SerializeField] SpriteRenderer playerSpriteRenderer;
     [SerializeField] float powerupEffectSpeed = 10f;
+    [SerializeField] AudioClip powerupSound;
 
 
     private bool isGameRunning = false;
@@ -122,6 +123,7 @@ public class PowerupSystem : MonoBehaviour
     {
         if (playerSpriteRenderer != null)
         {
+            SFXManager.Instance.PlaySFX(powerupSound);
             MaterialPropertyBlock propBlock = new MaterialPropertyBlock();
             playerSpriteRenderer.GetPropertyBlock(propBlock);
             propBlock.SetFloat("_PowerUpSpeed", powerupEffectSpeed);
