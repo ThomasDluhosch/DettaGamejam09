@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -30,11 +31,9 @@ public class ClimberHitEffects : MonoBehaviour
 
         DamageFlashEffect();
 
-        if (Gamepad.all.Count > 1)
-        {
-            Gamepad.all[1].SetMotorSpeeds(0.5f * damage, 0.5f * damage);
-            Invoke("StopGamepadRumble", damageFlashDuration);
-        }
+
+        StartCoroutine(RumbleCoroutine(damageFlashDuration, 0.5f * damage, 0.5f * damage));
+        
     }
 
     private void DamageFlashEffect()
@@ -61,11 +60,14 @@ public class ClimberHitEffects : MonoBehaviour
         }
     }
 
-    private void StopGamepadRumble()
+    private IEnumerator RumbleCoroutine(float duration, float lowFrequency, float highFrequency)
     {
         if (Gamepad.all.Count > 1)
         {
+            Gamepad.all[1].SetMotorSpeeds(lowFrequency, highFrequency);
+            yield return new WaitForSecondsRealtime(duration);
             Gamepad.all[1].SetMotorSpeeds(0f, 0f);
         }
     }
+
 }
