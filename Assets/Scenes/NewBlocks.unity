@@ -191,7 +191,7 @@ Transform:
   m_GameObject: {fileID: 136421709}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.8, z: 0}
+  m_LocalPosition: {x: 0, y: 4.43, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -461,14 +461,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlockSpawner
   blockPrefabs:
-  - blockPrefab: {fileID: 472857717215189663, guid: 7effc0fe41d471747a00ff92ab6b62fb, type: 3}
-    spawnProbability: 0.1
-  - blockPrefab: {fileID: 4632207730788680111, guid: afd03cf6342d7519f862f1817531259f, type: 3}
-    spawnProbability: 0.1
   - blockPrefab: {fileID: -2772483321172087522, guid: 53c9bf0ebad641824a8cd3f449c0abda, type: 3}
-    spawnProbability: 0.7
+    spawnProbability: 1
+  - blockPrefab: {fileID: 4632207730788680111, guid: afd03cf6342d7519f862f1817531259f, type: 3}
+    spawnProbability: 0.3
+  - blockPrefab: {fileID: 472857717215189663, guid: 7effc0fe41d471747a00ff92ab6b62fb, type: 3}
+    spawnProbability: 1
   - blockPrefab: {fileID: 7651144784818001123, guid: f3c5b3e1299199016b4143532be9fc27, type: 3}
-    spawnProbability: 0.1
+    spawnProbability: 1
   powerupPrefabs:
   - {fileID: 214760767308748635, guid: ad3e57c85f4d9447dacc783b5c41b3f5, type: 3}
   - {fileID: 1020337396667248937, guid: 6c8e314306aaa4531ae63efb611dc0f4, type: 3}
@@ -1061,7 +1061,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 2530564911472380330, guid: 426bf4f24a9336148b1847bbfb129467, type: 3}
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1285,7 +1285,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 2530564911472380330, guid: 426bf4f24a9336148b1847bbfb129467, type: 3}
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1362,15 +1362,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Main Menu
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 33cf69791ed2c47f1888c868ab2481c5, type: 2}
-  m_sharedMaterial: {fileID: -2144506378816997197, guid: 33cf69791ed2c47f1888c868ab2481c5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278848558
-  m_fontColor: {r: 0.18039216, g: 0.047058824, b: 0.039215688, a: 1}
+    rgba: 4281479730
+  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1877,8 +1877,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Crane user wins!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 33cf69791ed2c47f1888c868ab2481c5, type: 2}
-  m_sharedMaterial: {fileID: -2144506378816997197, guid: 33cf69791ed2c47f1888c868ab2481c5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2108,15 +2108,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Restart
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 33cf69791ed2c47f1888c868ab2481c5, type: 2}
-  m_sharedMaterial: {fileID: -2144506378816997197, guid: 33cf69791ed2c47f1888c868ab2481c5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278848558
-  m_fontColor: {r: 0.18039216, g: 0.047058824, b: 0.039215688, a: 1}
+    rgba: 4281479730
+  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2245,15 +2245,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: PAUSED
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 33cf69791ed2c47f1888c868ab2481c5, type: 2}
-  m_sharedMaterial: {fileID: -2144506378816997197, guid: 33cf69791ed2c47f1888c868ab2481c5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278848558
-  m_fontColor: {r: 0.18039216, g: 0.047058824, b: 0.039215688, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2422,10 +2422,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1658441708}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.66, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.05, z: 0}
+  m_LocalScale: {x: 1, y: 2.9272, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 136421710}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2478,12 +2478,12 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 93476938548734218, guid: 9a4e3f3870f153e40b6365e82fb7dd0e, type: 3}
+  m_Sprite: {fileID: 7482667652216324306, guid: 2c4e9b53f98481cd1a03b7ff581ba783, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.5, y: 1}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -2584,10 +2584,6 @@ PrefabInstance:
       propertyPath: Move
       value: 
       objectReference: {fileID: 1544931537}
-    - target: {fileID: 6068910646382001098, guid: ca389f2d5773a4fd6ad5105426bdef20, type: 3}
-      propertyPath: grabDistance
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6068910646382001098, guid: ca389f2d5773a4fd6ad5105426bdef20, type: 3}
       propertyPath: grabCheckCollider
       value: 
@@ -2786,7 +2782,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 3eb33dcc337cc1347852a088cfdb8362, type: 3}
+  m_Sprite: {fileID: -8483731395159641348, guid: 3eb33dcc337cc1347852a088cfdb8362, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2805,7 +2801,7 @@ Transform:
   m_GameObject: {fileID: 1729039105}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.02, z: 0}
+  m_LocalPosition: {x: 0, y: 0.34000015, z: 0}
   m_LocalScale: {x: 11.3143, y: 11.3143, z: 11.3143}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3110,10 +3106,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CraneController
   craneArm: {fileID: 136421710}
   startPoint: {fileID: 1182787225}
-  craneSprite: {fileID: 1658441708}
   moveSpeed: 5
   horizontalLimit: 7.19
-  rotationSpeed: 5
   onCranePickedUp:
     m_PersistentCalls:
       m_Calls:

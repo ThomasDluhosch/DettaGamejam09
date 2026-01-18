@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &929210637990993929
+--- !u!1 &6201650363134861505
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,41 +8,41 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2658199331806657988}
-  - component: {fileID: 5117529238771145403}
-  - component: {fileID: 3344204612449104500}
-  - component: {fileID: 8668221529312857492}
-  - component: {fileID: 7600969658678202320}
-  m_Layer: 11
-  m_Name: SpeedPowerup
+  - component: {fileID: 220210400322199252}
+  - component: {fileID: 7840503653453701304}
+  - component: {fileID: 5007081195491615764}
+  - component: {fileID: 472857717215189663}
+  - component: {fileID: 539109803601881405}
+  m_Layer: 9
+  m_Name: IceBlock
   m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2658199331806657988
+--- !u!4 &220210400322199252
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 929210637990993929}
+  m_GameObject: {fileID: 6201650363134861505}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.36308, y: -1.46251, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &5117529238771145403
+--- !u!212 &7840503653453701304
 SpriteRenderer:
   serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 929210637990993929}
+  m_GameObject: {fileID: 6201650363134861505}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -82,29 +82,29 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: b2e988cf200f6434c976221bcf96f46c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8df9110e3fded7e44a260a43c584b5d7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.16, y: 0.16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!61 &3344204612449104500
+--- !u!61 &5007081195491615764
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 929210637990993929}
+  m_GameObject: {fileID: 6201650363134861505}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: d51603f70c75e11dd97ff667c292898e, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -132,39 +132,40 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
+    oldSize: {x: 0.16, y: 0.16}
+    newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &8668221529312857492
+--- !u!114 &472857717215189663
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 929210637990993929}
+  m_GameObject: {fileID: 6201650363134861505}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3532ad7b564877d4ca163aa1fc096f56, type: 3}
+  m_Script: {fileID: 11500000, guid: 1ac6c740d50988527a4ccceef34a2a54, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SpeedPowerup
-  hitGroundEffect: {fileID: 0}
-  dragOnGroundEffect: {fileID: 0}
-  powerupDuration: 3
-  powerupSpeed: 5
---- !u!50 &7600969658678202320
+  m_EditorClassIdentifier: Assembly-CSharp::IceBlock
+  hitGroundEffect: {fileID: 3892139522856345200, guid: 698be3a0a094b1c458653b43908f1b73, type: 3}
+  dragOnGroundEffect: {fileID: 7213189074409452367, guid: a7244034d2a4d2f6bb4e2f8ded97a3c1, type: 3}
+  iceBreakEffectPrefab: {fileID: 4212405621216790812, guid: 5407e7785fd431c3395cb4f618a94275, type: 3}
+  breakForceMultiplier: 2
+  breakVelocityMultiplier: 1
+--- !u!50 &539109803601881405
 Rigidbody2D:
   serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 929210637990993929}
-  m_BodyType: 1
+  m_GameObject: {fileID: 6201650363134861505}
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0

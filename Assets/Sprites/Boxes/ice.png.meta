@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 78bef3c4e70164245a8ca4589cd6222a
+guid: 8df9110e3fded7e44a260a43c584b5d7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3385088572399049211
-    second: crate2_0
+      213: -856085545168688419
+    second: ice_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: crate2_0
+      name: ice_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 506abecd0efb501d0800000000000000
-      internalID: -3385088572399049211
+      spriteID: ddaafde7bb29e14f0800000000000000
+      internalID: -856085545168688419
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      crate2_0: -3385088572399049211
+      ice_0: -856085545168688419
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

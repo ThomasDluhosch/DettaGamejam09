@@ -5,6 +5,7 @@ public class ClimberActions : MonoBehaviour
 {
 
     [Header("Movement Settings")]
+    [SerializeField] private float defaultMoveSpeed = 5f;
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float decelerationDrag = 15f;
     [SerializeField] private float movementAcceleration = 100f;
@@ -36,6 +37,7 @@ public class ClimberActions : MonoBehaviour
     private FixedJoint2D dragJoint;
     private Rigidbody2D draggedBlockRb;
     [SerializeField] private float grabOffsetX = 0.5f;
+    public bool isDragging;
 
 
     void Start()
@@ -71,7 +73,7 @@ public class ClimberActions : MonoBehaviour
         }
 
         //Setting Animator Properties
-        if (rb.linearVelocity.x != 0)
+        if (rb.linearVelocity.x == 5 || rb.linearVelocity.x == -5)
         {
             animator.SetBool("isMoving", true);
         } else
@@ -144,21 +146,29 @@ public class ClimberActions : MonoBehaviour
         isJumping = false;
     }
 
-    public bool isDragging;
-
-    // todo
     public void Drag(GameObject block)
     {
         if (!IsGrounded) return;
-        if (!isDragging) {
-            isDragging = true;
-            setSpeed(moveSpeed / 2f);
-        }
+
 
         if (dragJoint != null) return;
 
         Rigidbody2D blockRb = block.GetComponent<Rigidbody2D>();
         if (blockRb == null) return;
+
+        if(block.GetComponent<ExpandingBlock>() == null) return;
+
+        ExpandingBlock expandingBlock = block.GetComponent<ExpandingBlock>();
+        expandingBlock.setMassWhileDragging();
+     
+        if (!isDragging) {
+            isDragging = true;
+            float scaleValue = expandingBlock.getScaleValue();
+            float t = scaleValue - 1f;
+            float targetSpeed = Mathf.Lerp(2f, 0.5f, t);
+            setSpeed(targetSpeed);
+        }
+
 
         dragJoint = block.AddComponent<FixedJoint2D>();
         dragJoint.connectedBody = rb;
@@ -179,12 +189,18 @@ public class ClimberActions : MonoBehaviour
     {
         if (dragJoint == null) return;
 
+        ExpandingBlock expandingBlock = dragJoint.gameObject.GetComponent<ExpandingBlock>();
+        if (expandingBlock != null)
+        {
+            expandingBlock.resetMass();
+        }
+
         Destroy(dragJoint);
         dragJoint = null;
         draggedBlockRb = null;
         if (isDragging) {
             isDragging = false;
-            setSpeed(moveSpeed * 2f);
+            setSpeed(defaultMoveSpeed);
         }
     }
 

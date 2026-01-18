@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BlockSpawner : MonoBehaviour
 {
-    [SerializeField] private BaseBlock[] blockPrefabs;
+    [SerializeField] private BlockSpawnerEntry[] blockPrefabs;
     [SerializeField] private Powerup[] powerupPrefabs;
     [SerializeField] private float spawnInterval = 2f;
 
@@ -55,8 +55,27 @@ public class BlockSpawner : MonoBehaviour
             if (blockPrefabs.Length == 0)
                 return;
                 
-            int randomIndex = Random.Range(0, blockPrefabs.Length);
-            currentBlock = Instantiate(blockPrefabs[randomIndex], transform.position, Quaternion.identity);
+            // Calculate total weight
+            float totalWeight = 0f;
+            foreach (var entry in blockPrefabs)
+            {
+                totalWeight += entry.spawnProbability;
+            }
+            
+            // Generate random value and select block based on weight
+            float randomValue = Random.Range(0f, totalWeight);
+            float cumulativeWeight = 0f;
+            
+            foreach (var entry in blockPrefabs)
+            {
+                cumulativeWeight += entry.spawnProbability;
+                if (randomValue <= cumulativeWeight)
+                {
+                    currentBlock = Instantiate(entry.blockPrefab, transform.position, Quaternion.identity);
+                    break;
+                }
+            }
+            
             currentBlockSpawns++;
         }
     }
@@ -67,4 +86,13 @@ public class BlockSpawner : MonoBehaviour
         currentBlock = null;
         return block;
     }
+
+    [System.Serializable]
+    class BlockSpawnerEntry
+    {
+        public BaseBlock blockPrefab;
+        [Range(0f, 1f)]
+        public float spawnProbability = 1f;
+    }
 }
+

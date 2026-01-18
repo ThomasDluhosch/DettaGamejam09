@@ -5,6 +5,7 @@ public class ExpandingBlock : BaseBlock
     [SerializeField] private float expandRate = 2f;
     [SerializeField] private float maxScale = 2f;
     [SerializeField] private float maxGravityScale = 3f;
+    private float scaleValue;
     private float mass = 30f;
     private float timeElapsed = 0f;
 
@@ -19,7 +20,7 @@ public class ExpandingBlock : BaseBlock
 
         float t = (Mathf.Sin(timeElapsed) + 1f) / 2f;
         
-        float scaleValue = Mathf.Lerp(1f, maxScale, t);
+        scaleValue = Mathf.Lerp(1f, maxScale, t);
         
         transform.localScale = Vector3.one * scaleValue;
 
@@ -36,5 +37,10 @@ public class ExpandingBlock : BaseBlock
     public void resetMass()
     {
         Rigidbody.mass = mass;
+    }
+
+    public float getScaleValue()
+    {
+        return scaleValue;
     }
 }

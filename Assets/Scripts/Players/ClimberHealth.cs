@@ -11,6 +11,8 @@ public class ClimberHealth : MonoBehaviour
     [SerializeField] private UnityEvent<float> onHealthChanged;
     [SerializeField] private UnityEvent<float> onDamageTaken;
 
+    [SerializeField] private Animator animator;
+
     private bool shieldActive = false;
 
     private bool isDead = false;
@@ -43,6 +45,7 @@ public class ClimberHealth : MonoBehaviour
 
     void Die()
     {
+        animator.SetTrigger("ded");
         isDead = true;
 
         Debug.Log("Climber has died.");

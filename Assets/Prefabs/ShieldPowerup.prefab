@@ -47,6 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5e4a4bd2632f48cc8158555eba254f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShieldPowerup
+  hitGroundEffect: {fileID: 0}
+  dragOnGroundEffect: {fileID: 0}
   powerupDuration: 15
 --- !u!212 &5117529238771145403
 SpriteRenderer:
@@ -97,7 +99,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 58068862916304467, guid: 276cb2d7574e87c41a41c87775f59c9f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3ad74813e65cd58409b7259eea0765fe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -145,7 +147,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.14}
+    oldSize: {x: 0.16, y: 0.16}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
