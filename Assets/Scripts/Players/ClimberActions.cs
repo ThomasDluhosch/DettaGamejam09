@@ -67,14 +67,13 @@ public class ClimberActions : MonoBehaviour
         }
 
         //Setting Animator Properties
-        if (isMoving)
+        if (rb.linearVelocity.x != 0)
         {
             animator.SetBool("isMoving", true);
-        } else if (!isMoving)
+        } else
         {
             animator.SetBool("isMoving", false);
         }
-
 
         // Jumping
         if (hasPressedJump)
@@ -82,7 +81,7 @@ public class ClimberActions : MonoBehaviour
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             hasPressedJump = false;
             isJumping = true;
-            animator.SetBool("isJumping", true);
+            animator.SetTrigger("jump");
         }
 
         if (rb.linearVelocity.y > 0 && isJumping)
