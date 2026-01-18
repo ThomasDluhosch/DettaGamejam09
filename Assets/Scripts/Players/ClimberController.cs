@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 using static UnityEngine.InputSystem.DefaultInputActions;
+using static UnityEngine.UI.Image;
 
 [RequireComponent(typeof(PlayerActions))]
 public class ClimberController : MonoBehaviour
@@ -19,16 +20,19 @@ public class ClimberController : MonoBehaviour
     [SerializeField] private InputActionReference Move;
     [SerializeField] private InputActionReference Drag;
 
+    [SerializeField] private float grabDistance;
+
 
     [Space(10)]
     [Header("Colliders")]
-    [SerializeField] private Collider2D groundCheckCollider, grabCheckCollider;
+    [SerializeField] private Collider2D groundCheckCollider;
     private Collider2D[] blockColliders;
 
     [Header("Scripts")]
     [SerializeField] ClimberActions climberActions;
 
     float moveDirection;
+    Vector2 direction;
 
     ContactFilter2D filter = new ContactFilter2D();
 
@@ -69,19 +73,26 @@ public class ClimberController : MonoBehaviour
             ClimberActions.StopClimb();
         }
 
-
-
-    }
-
-    private void FixedUpdate()
-    {
-        int count = grabCheckCollider.Overlap(filter, blockColliders);
-        bool hasBlock = count > 0;
-
-        // Start dragging
-        if (Drag.action.WasPressedThisFrame() && hasBlock && !climberActions.isDragging)
+        if (moveDirection != 0)
         {
-            ClimberActions.Drag(blockColliders[0].gameObject);
+            direction = new Vector2(1, 0) * moveDirection;
+        }
+
+
+        Debug.Log(moveDirection);
+        RaycastHit2D hit = Physics2D.Raycast(
+            transform.position,
+            direction,
+            grabDistance,
+            LayerMask.GetMask("Block")
+        );
+
+        Debug.Log(hit);
+        Debug.DrawRay(transform.position, direction * grabDistance, Color.green);
+
+        if (Drag.action.WasPressedThisFrame() && hit.collider != null && !climberActions.isDragging)
+        {
+            ClimberActions.Drag(hit.collider.gameObject);
         }
 
         // Stop dragging
@@ -89,6 +100,7 @@ public class ClimberController : MonoBehaviour
         {
             ClimberActions.ReleaseDrag();
         }
+
     }
 
     private bool isGrounded()

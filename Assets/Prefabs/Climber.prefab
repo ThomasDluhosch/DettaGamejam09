@@ -869,6 +869,7 @@ MonoBehaviour:
   Jump: {fileID: 0}
   Move: {fileID: 0}
   Drag: {fileID: 0}
+  grabDistance: 100
   groundCheckCollider: {fileID: 8956303240651646684}
   grabCheckCollider: {fileID: 0}
   climberActions: {fileID: 2976349492964754859}
@@ -979,6 +980,9 @@ MonoBehaviour:
   shakeDuration: 0.2
   shakeFrequencyScale: 50
   shakeAmplitudeScale: 1
+  spriteRenderer: {fileID: 0}
+  damageFlashSpeed: 2
+  damageFlashDuration: 0.5
 --- !u!50 &3702332690540302202
 Rigidbody2D:
   serializedVersion: 5
