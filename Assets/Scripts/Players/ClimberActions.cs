@@ -28,7 +28,6 @@ public class ClimberActions : MonoBehaviour
     [SerializeField] private SpriteRenderer Sprite;
     [SerializeField] private Animator animator;
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private Collider2D grabCheckCollider;
     private float currentMoveDirection;
     private Rigidbody2D draggedBody;
     [SerializeField] LayerMask boxLayer;
@@ -121,7 +120,6 @@ public class ClimberActions : MonoBehaviour
     public void Move(float direction)
     {
         currentMoveDirection = direction;
-        UpdateGrabColliderDirection(direction);
         switch (direction)
         {
             case 1:
@@ -189,15 +187,6 @@ public class ClimberActions : MonoBehaviour
             isDragging = false;
             setSpeed(moveSpeed * 2f);
         }
-    }
-
-    void UpdateGrabColliderDirection(float moveDirection)
-    {
-        if (Mathf.Abs(moveDirection) < 0.01f) return;
-
-        Vector3 localPos = grabCheckCollider.transform.localPosition;
-        localPos.x = Mathf.Sign(moveDirection) * grabOffsetX;
-        grabCheckCollider.transform.localPosition = localPos;
     }
 
     public float getSpeed()
