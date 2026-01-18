@@ -1059,6 +1059,39 @@
                     "isPartOfComposite": true
                 },
                 {
+                    "name": "1D Axis",
+                    "id": "1ce292f5-7b6c-43f6-80e9-cb951417ce08",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "AxisDeadzone(min=0.7,max=0.3)",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "631a5524-2241-4e3d-9c9c-48a567dde42b",
+                    "path": "<Gamepad>/leftStick/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "568cfcbe-c3da-4dc6-95a4-ee6182931632",
+                    "path": "<Gamepad>/leftStick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "",
                     "id": "cd6231f1-27e6-4735-8b47-597ccc7a8596",
                     "path": "<Keyboard>/upArrow",
@@ -1071,8 +1104,30 @@
                 },
                 {
                     "name": "",
+                    "id": "7f5ed9b9-5c63-456a-b0fc-3121ff6d6726",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "75f9c2b2-af43-48bd-b303-9214ed55e497",
                     "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Drag",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4fbcf4e5-d551-44b7-8281-ae325df62dec",
+                    "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
