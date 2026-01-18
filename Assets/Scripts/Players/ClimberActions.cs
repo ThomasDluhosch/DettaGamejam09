@@ -152,6 +152,7 @@ public class ClimberActions : MonoBehaviour
     // todo
     public void Drag(GameObject block)
     {
+        if (!IsGrounded) return;
         if (!isDragging) {
             isDragging = true;
             setSpeed(moveSpeed / 2f);
