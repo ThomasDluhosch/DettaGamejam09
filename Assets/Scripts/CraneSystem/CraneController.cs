@@ -77,13 +77,12 @@ public class CraneController : MonoBehaviour
         if ((craneArm.position.x <= -horizontalLimit && horizontal < 0) ||
             (craneArm.position.x >= horizontalLimit && horizontal > 0))
         {
-            horizontal = 0; 
+            horizontal = 0;
         }
 
         if (horizontal != 0 && !((craneArm.position.x <= -horizontalLimit && horizontal < 0) || (craneArm.position.x >= horizontalLimit && horizontal > 0)))
         {
-             Debug.Log("Crane moving: " + horizontal);
-             craneArm.Translate(Vector3.right * horizontal * moveSpeed * Time.deltaTime);
+            craneArm.Translate(Vector3.right * horizontal * moveSpeed * Time.deltaTime);
         }
 
         float targetZ = 0f;
