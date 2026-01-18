@@ -2578,6 +2578,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1544931537}
     - target: {fileID: 6068910646382001098, guid: ca389f2d5773a4fd6ad5105426bdef20, type: 3}
+      propertyPath: grabDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6068910646382001098, guid: ca389f2d5773a4fd6ad5105426bdef20, type: 3}
       propertyPath: grabCheckCollider
       value: 
       objectReference: {fileID: 595684067}
