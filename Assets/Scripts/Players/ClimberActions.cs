@@ -184,7 +184,7 @@ public class ClimberActions : MonoBehaviour
         dragJoint.connectedAnchor = rb.transform.InverseTransformPoint(rb.position + worldOffset);
 
         draggedBlockRb = blockRb;
-
+        animator.SetBool("isDragging", true);
     }
 
     public void ReleaseDrag()
@@ -203,6 +203,7 @@ public class ClimberActions : MonoBehaviour
         if (isDragging) {
             isDragging = false;
             setSpeed(defaultMoveSpeed);
+            animator.SetBool("isDragging", false);
         }
     }
 
