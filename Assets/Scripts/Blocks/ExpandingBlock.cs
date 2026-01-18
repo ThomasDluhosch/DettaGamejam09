@@ -5,7 +5,7 @@ public class ExpandingBlock : BaseBlock
     [SerializeField] private float expandRate = 2f;
     [SerializeField] private float maxScale = 2f;
     [SerializeField] private float maxGravityScale = 3f;
-    [SerializeField] private float mass = 2f;
+    [SerializeField] private float mass = 30f;
     private float timeElapsed = 0f;
 
     public override void OnCraneUpdate()
@@ -25,6 +25,16 @@ public class ExpandingBlock : BaseBlock
 
         Rigidbody.gravityScale = Mathf.Lerp(1f, maxGravityScale, t);
 
-        // Rigidbody.mass = 3 * Mathf.Pow(scaleValue, mass);
+        Rigidbody.mass = mass;
+    }
+
+    public void setMassWhileDragging()
+    {
+        Rigidbody.mass = 1f;
+    }
+
+    public void resetMass()
+    {
+        Rigidbody.mass = mass;
     }
 }
