@@ -3110,8 +3110,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CraneController
   craneArm: {fileID: 136421710}
   startPoint: {fileID: 1182787225}
+  craneSprite: {fileID: 1658441708}
   moveSpeed: 5
   horizontalLimit: 7.19
+  rotationSpeed: 5
   onCranePickedUp:
     m_PersistentCalls:
       m_Calls:
