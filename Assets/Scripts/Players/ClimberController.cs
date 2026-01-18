@@ -22,11 +22,12 @@ public class ClimberController : MonoBehaviour
 
     [Space(10)]
     [Header("Colliders")]
-    [SerializeField] private Collider2D groundCheckCollider, grabFrontCheckCollider, grabBackCheckCollider;
+    [SerializeField] private Collider2D groundCheckCollider, grabCheckCollider;
     private Collider2D[] blockColliders;
 
-    private bool blockInFront = false;
-    private bool blockInBack = false;
+    [Header("Scripts")]
+    [SerializeField] ClimberActions climberActions;
+
     float moveDirection;
 
     ContactFilter2D filter = new ContactFilter2D();
@@ -74,26 +75,17 @@ public class ClimberController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //Grab Check
-        if (grabFrontCheckCollider != null)
-        {
-            blockInFront = grabFrontCheckCollider.IsTouchingLayers(LayerMask.GetMask("Block"));
-            count = grabFrontCheckCollider.Overlap(filter, blockColliders);
-        }
+        int count = grabCheckCollider.Overlap(filter, blockColliders);
+        bool hasBlock = count > 0;
 
-        if (grabBackCheckCollider != null)
-        {
-            blockInBack = grabBackCheckCollider.IsTouchingLayers(LayerMask.GetMask("Block"));
-            count = grabBackCheckCollider.Overlap(filter, blockColliders);
-        }
-
-
-
-        if (Drag.action.IsPressed() && (blockInFront || blockInBack))
+        // Start dragging
+        if (Drag.action.WasPressedThisFrame() && hasBlock && !climberActions.isDragging)
         {
             ClimberActions.Drag(blockColliders[0].gameObject);
         }
-        else
+
+        // Stop dragging
+        if (!Drag.action.IsPressed() && climberActions.isDragging)
         {
             ClimberActions.ReleaseDrag();
         }

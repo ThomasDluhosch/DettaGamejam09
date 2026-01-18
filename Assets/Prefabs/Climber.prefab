@@ -870,8 +870,8 @@ MonoBehaviour:
   Move: {fileID: 0}
   Drag: {fileID: 0}
   groundCheckCollider: {fileID: 8956303240651646684}
-  grabFrontCheckCollider: {fileID: 5460908498803967038}
-  grabBackCheckCollider: {fileID: 7475293212408629378}
+  grabCheckCollider: {fileID: 0}
+  climberActions: {fileID: 2976349492964754859}
 --- !u!114 &2976349492964754859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -898,9 +898,12 @@ MonoBehaviour:
   Sprite: {fileID: 6329167637857813781}
   animator: {fileID: 4628684797338966319}
   rb: {fileID: 3702332690540302202}
+  grabCheckCollider: {fileID: 0}
   boxLayer:
     serializedVersion: 2
     m_Bits: 0
+  grabOffsetX: 0.5
+  isDragging: 0
 --- !u!114 &567348167444167398
 MonoBehaviour:
   m_ObjectHideFlags: 0
