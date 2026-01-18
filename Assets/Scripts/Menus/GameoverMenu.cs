@@ -4,11 +4,13 @@ using UnityEngine;
 public class GameoverMenu : MonoBehaviour
 {
     [SerializeField] private TMP_Text winnerText;
+    [SerializeField] private AudioClip winSound;
 
     private readonly string[] playerNames = { "Crane Operator", "Climber" };
     public void ShowMenu(int winnerIndex)
     {
         gameObject.SetActive(true);
+        SFXManager.Instance.PlaySFX(winSound);
 
         winnerText.text = $"{playerNames[winnerIndex]} Wins!";
 
