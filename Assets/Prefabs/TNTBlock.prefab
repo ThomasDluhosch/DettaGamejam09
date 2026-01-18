@@ -181,6 +181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TNTBlock
   hitGroundEffect: {fileID: 0}
   dragOnGroundEffect: {fileID: 0}
+  dropEffect: {fileID: 8300000, guid: b06116f0f861c493fb042cfe4c3e43a3, type: 3}
   explosionRadius: 5
   explosionForce: 700
   spriteRenderer: {fileID: 4827095186276074541}

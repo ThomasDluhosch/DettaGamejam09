@@ -181,6 +181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::JellyBlock
   hitGroundEffect: {fileID: 3892139522856345200, guid: 698be3a0a094b1c458653b43908f1b73, type: 3}
   dragOnGroundEffect: {fileID: 0}
+  dropEffect: {fileID: 8300000, guid: c1fd30ad0063b4975915c16ac3ca16de, type: 3}
   wobbleSpeed: 2
   wobbleIntensity: 0.1
   wobbleDecay: 3

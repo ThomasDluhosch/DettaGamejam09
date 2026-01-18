@@ -6,6 +6,7 @@ public class BaseBlock : MonoBehaviour
 {
     [SerializeField] private GameObject hitGroundEffect;
     [SerializeField] private GameObject dragOnGroundEffect;
+    [SerializeField] private AudioClip dropEffect;
     private Rigidbody2D rb;
     private Collider2D col;
     private GameObject dragVFXInstance;
@@ -44,6 +45,7 @@ public class BaseBlock : MonoBehaviour
     {
         rb.bodyType = RigidbodyType2D.Dynamic;
         col.isTrigger = false;
+        SFXManager.Instance.PlaySFX(dropEffect);
     }
 
     void OnCollisionEnter2D(Collision2D collision)
