@@ -467,6 +467,8 @@ MonoBehaviour:
     spawnProbability: 0.3
   - blockPrefab: {fileID: 472857717215189663, guid: 7effc0fe41d471747a00ff92ab6b62fb, type: 3}
     spawnProbability: 0.6
+  - blockPrefab: {fileID: 7651144784818001123, guid: f3c5b3e1299199016b4143532be9fc27, type: 3}
+    spawnProbability: 1
   powerupPrefabs:
   - {fileID: 214760767308748635, guid: ad3e57c85f4d9447dacc783b5c41b3f5, type: 3}
   - {fileID: 1020337396667248937, guid: 6c8e314306aaa4531ae63efb611dc0f4, type: 3}
