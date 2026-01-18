@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class VFXSlider : MonoBehaviour
+public class SFXSlider : MonoBehaviour
 {
     private Slider slider;
 
@@ -13,7 +13,7 @@ public class VFXSlider : MonoBehaviour
     private void Start()
     {
         // Initialize slider with current music volume
-        slider.value = VFXManager.Instance.GetVFXVolume();
+        slider.value = SFXManager.Instance.GetSFXVolume();
 
         // Listen for value changes
         slider.onValueChanged.AddListener(OnSliderValueChanged);
@@ -26,6 +26,6 @@ public class VFXSlider : MonoBehaviour
 
     private void OnSliderValueChanged(float value)
     {
-        VFXManager.Instance.SetVFXVolume(value);
+        SFXManager.Instance.SetSFXVolume(value);
     }
 }

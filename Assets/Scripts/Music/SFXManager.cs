@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class VFXManager : MonoBehaviour
+public class SFXManager : MonoBehaviour
 {
-    public static VFXManager Instance;
+    public static SFXManager Instance;
 
     [SerializeField] private AudioSource vfxSource;
 
@@ -19,17 +19,18 @@ public class VFXManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public void SetVFXVolume(float volume)
+    public void SetSFXVolume(float volume)
     {
         vfxSource.volume = volume;
     }
 
-    public float GetVFXVolume()
+    public float GetSFXVolume()
     {
         return vfxSource.volume;
     }
 
-    public void PlayVFX(AudioClip vfx) {
+    public void PlaySFX(AudioClip vfx)
+    {
         vfxSource.clip = vfx;
         vfxSource.Play();
     }

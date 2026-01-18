@@ -1545,8 +1545,9 @@ GameObject:
   - component: {fileID: 1107143739}
   - component: {fileID: 1107143738}
   - component: {fileID: 1107143737}
+  - component: {fileID: 1107143740}
   m_Layer: 0
-  m_Name: VFXManager
+  m_Name: SFXManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1677,6 +1678,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1107143740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107143736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8f8521dccc492d409e293f27f46877c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SFXManager
+  vfxSource: {fileID: 1107143737}
 --- !u!1 &1308993464
 GameObject:
   m_ObjectHideFlags: 0
@@ -2866,9 +2880,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2004632310}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69e6e987e8554a64d845b2b11e90ddaf, type: 3}
+  m_Script: {fileID: 11500000, guid: 00e682300ea2145459fb785440d0d2ed, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::VFXSlider
+  m_EditorClassIdentifier: Assembly-CSharp::SFXSlider
 --- !u!1 &2041375953
 GameObject:
   m_ObjectHideFlags: 0
