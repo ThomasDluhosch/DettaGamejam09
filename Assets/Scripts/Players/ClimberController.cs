@@ -101,7 +101,7 @@ public class ClimberController : MonoBehaviour
 
     private bool isGrounded()
     {
-        return groundCheckCollider.IsTouchingLayers(LayerMask.GetMask("Ground"));
+        return groundCheckCollider.IsTouchingLayers(LayerMask.GetMask("Ground")) || groundCheckCollider.IsTouchingLayers(LayerMask.GetMask("Block"));
     }
 
 }
