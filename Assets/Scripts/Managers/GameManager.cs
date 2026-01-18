@@ -51,6 +51,7 @@ public class GameManager : Singleton<GameManager>
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1f;
         Debug.Log("Game Restarted.");
+        currentState = GameState.Playing;
     }
 
     public void MainMenu()
@@ -58,5 +59,6 @@ public class GameManager : Singleton<GameManager>
         UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
         Time.timeScale = 1f;
         Debug.Log("Returned to Main Menu.");
+        currentState = GameState.Playing;
     }
 }
