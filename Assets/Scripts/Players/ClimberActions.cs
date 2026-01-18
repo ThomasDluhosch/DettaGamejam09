@@ -71,7 +71,7 @@ public class ClimberActions : MonoBehaviour
         }
 
         //Setting Animator Properties
-        if (rb.linearVelocity.x != 0)
+        if (rb.linearVelocity.x == 5 || rb.linearVelocity.x == -5)
         {
             animator.SetBool("isMoving", true);
         } else
