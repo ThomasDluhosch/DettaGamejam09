@@ -44,6 +44,12 @@ public class TNTBlock : BaseBlock
             Rigidbody2D rb = nearbyObject.GetComponent<Rigidbody2D>();
             if (rb != null)
             {
+                ExpandingBlock expandingBlock = rb.GetComponent<ExpandingBlock>();
+                if (expandingBlock != null)
+                {
+                    expandingBlock.StartCoroutine(expandingBlock.MakeLightweight(2f));
+                }
+
                 Vector2 direction = rb.position - (Vector2)transform.position;
                 rb.AddForce(direction.normalized * explosionForce);
             }

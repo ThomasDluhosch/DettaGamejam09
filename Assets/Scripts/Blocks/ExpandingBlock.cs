@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class ExpandingBlock : BaseBlock
@@ -42,5 +43,12 @@ public class ExpandingBlock : BaseBlock
     public float getScaleValue()
     {
         return scaleValue;
+    }
+
+    public IEnumerator MakeLightweight(float duration)
+    {
+        setMassWhileDragging();
+        yield return new WaitForSeconds(duration);
+        resetMass();
     }
 }

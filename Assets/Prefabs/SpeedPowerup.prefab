@@ -152,8 +152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3532ad7b564877d4ca163aa1fc096f56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpeedPowerup
-  hitGroundEffect: {fileID: 0}
-  dragOnGroundEffect: {fileID: 0}
+  hitGroundEffect: {fileID: 3892139522856345200, guid: 698be3a0a094b1c458653b43908f1b73, type: 3}
+  dragOnGroundEffect: {fileID: 7213189074409452367, guid: a7244034d2a4d2f6bb4e2f8ded97a3c1, type: 3}
   powerupDuration: 3
   powerupSpeed: 5
 --- !u!50 &7600969658678202320
