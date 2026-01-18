@@ -272,6 +272,10 @@ PrefabInstance:
       propertyPath: climber
       value: 
       objectReference: {fileID: 1693524098}
+    - target: {fileID: 7274320803776015482, guid: 7648b66885a68de479132ac1e0021da9, type: 3}
+      propertyPath: playerSpriteRenderer
+      value: 
+      objectReference: {fileID: 1686148047}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -516,8 +520,8 @@ Transform:
   m_GameObject: {fileID: 485030259}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.3749, y: 0.0672, z: 0}
-  m_LocalScale: {x: 3.8037, y: 10.158337, z: 1}
+  m_LocalPosition: {x: -9.7822, y: 0.0672, z: 0}
+  m_LocalScale: {x: 2.989328, y: 10.158337, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 45219129}
