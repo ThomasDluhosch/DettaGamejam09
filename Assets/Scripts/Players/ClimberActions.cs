@@ -123,6 +123,7 @@ public class ClimberActions : MonoBehaviour
     public void Move(float direction)
     {
         currentMoveDirection = direction;
+        if (isDragging) { return; }
         switch (direction)
         {
             case 1:
