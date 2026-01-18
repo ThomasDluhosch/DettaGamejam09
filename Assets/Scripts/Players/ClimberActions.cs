@@ -156,12 +156,11 @@ public class ClimberActions : MonoBehaviour
         Rigidbody2D blockRb = block.GetComponent<Rigidbody2D>();
         if (blockRb == null) return;
 
-        ExpandingBlock expandingBlock = block.GetComponent<ExpandingBlock>();
-        if (expandingBlock != null)
-        {
-            expandingBlock.setMassWhileDragging();
-        }
+        if(block.GetComponent<ExpandingBlock>() == null) return;
 
+        ExpandingBlock expandingBlock = block.GetComponent<ExpandingBlock>();
+        expandingBlock.setMassWhileDragging();
+     
         if (!isDragging) {
             isDragging = true;
             float scaleValue = expandingBlock.getScaleValue();
