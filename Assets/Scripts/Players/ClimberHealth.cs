@@ -10,6 +10,7 @@ public class ClimberHealth : MonoBehaviour
     [SerializeField] private UnityEvent onDeath;
     [SerializeField] private UnityEvent<float> onHealthChanged;
     [SerializeField] private UnityEvent<float> onDamageTaken;
+    [SerializeField] private AudioClip deathSFX;
 
     [SerializeField] private Animator animator;
 
@@ -49,6 +50,7 @@ public class ClimberHealth : MonoBehaviour
         isDead = true;
 
         Debug.Log("Climber has died.");
+        SFXManager.Instance.PlaySFX(deathSFX);
         onDeath.Invoke();
     }
 

@@ -186,3 +186,4 @@ MonoBehaviour:
   explosionForce: 700
   spriteRenderer: {fileID: 4827095186276074541}
   explosionEffectPrefab: {fileID: 2831499733863876734, guid: 9036a13d171a03fb4b1c21bca5f1162d, type: 3}
+  explosionSFX: {fileID: 8300000, guid: 9f0d6e61e326946ca812569b9ba307da, type: 3}

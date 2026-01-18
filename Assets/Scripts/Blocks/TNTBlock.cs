@@ -7,6 +7,7 @@ public class TNTBlock : BaseBlock
     [SerializeField] private float explosionForce = 700f;
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private GameObject explosionEffectPrefab;
+    [SerializeField] private AudioClip explosionSFX;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -58,6 +59,7 @@ public class TNTBlock : BaseBlock
         {
             Instantiate(explosionEffectPrefab, transform.position, Quaternion.identity);
         }
+        SFXManager.Instance.PlaySFX(explosionSFX);
         Destroy(gameObject);
     }
 }
