@@ -29,4 +29,9 @@ public class MusicManager : MonoBehaviour
     {
         return musicSource.volume;
     }
+
+    public void PlayMusic(AudioClip clip) {
+        musicSource.clip = clip;
+        musicSource.Play();
+    }
 }

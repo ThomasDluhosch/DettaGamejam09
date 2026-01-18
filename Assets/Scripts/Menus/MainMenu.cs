@@ -8,6 +8,8 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private Button playButton;
     [SerializeField] private Button optionsButton;
     [SerializeField] private Button quitButton;
+    [SerializeField] private AudioClip menuMusic;
+    [SerializeField] private AudioClip gameMusic;
 
     void Start()
     {
@@ -30,6 +32,7 @@ public class MainMenu : MonoBehaviour
     void PlayGame()
     {
         SceneManager.LoadScene("MainScene");
+        MusicManager.Instance.PlayMusic(gameMusic);
         Debug.LogWarning("Keine Szene ausgewählt!");
     }
 

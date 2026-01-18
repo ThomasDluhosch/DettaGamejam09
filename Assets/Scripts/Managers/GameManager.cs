@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
+    [SerializeField] private AudioClip menuMusic;
 
     public enum GameState
     {
@@ -60,5 +61,6 @@ public class GameManager : Singleton<GameManager>
         Time.timeScale = 1f;
         Debug.Log("Returned to Main Menu.");
         currentState = GameState.Playing;
+        MusicManager.Instance.PlayMusic(menuMusic);
     }
 }
