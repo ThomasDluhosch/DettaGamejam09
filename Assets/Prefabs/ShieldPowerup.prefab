@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.36308, y: -1.46251, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 8, y: 8, z: 8}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -47,8 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5e4a4bd2632f48cc8158555eba254f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShieldPowerup
-  hitGroundEffect: {fileID: 0}
-  dragOnGroundEffect: {fileID: 0}
+  hitGroundEffect: {fileID: 3892139522856345200, guid: 698be3a0a094b1c458653b43908f1b73, type: 3}
+  dragOnGroundEffect: {fileID: 7213189074409452367, guid: a7244034d2a4d2f6bb4e2f8ded97a3c1, type: 3}
   powerupDuration: 15
 --- !u!212 &5117529238771145403
 SpriteRenderer:
@@ -153,7 +153,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.16, y: 0.16}
   m_EdgeRadius: 0
 --- !u!50 &7600969658678202320
 Rigidbody2D:
