@@ -21,8 +21,6 @@ public class ExpandingBlock : BaseBlock
         float t = (Mathf.Sin(timeElapsed) + 1f) / 2f;
         
         scaleValue = Mathf.Lerp(1f, maxScale, t);
-
-        Debug.Log("scaleValue: " + scaleValue + " t: " + t);
         
         transform.localScale = Vector3.one * scaleValue;
 

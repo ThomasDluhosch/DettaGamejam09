@@ -81,8 +81,6 @@ public class ClimberController : MonoBehaviour
             direction = new Vector2(1, 0) * moveDirection;
         }
 
-
-        Debug.Log(moveDirection);
         RaycastHit2D hit = Physics2D.Raycast(
             transform.position,
             direction,
@@ -90,7 +88,6 @@ public class ClimberController : MonoBehaviour
             LayerMask.GetMask("Block")
         );
 
-        Debug.Log(hit);
         Debug.DrawRay(transform.position, direction * grabDistance, Color.green);
 
         if (Drag.action.WasPressedThisFrame() && hit.collider != null && !climberActions.isDragging)
