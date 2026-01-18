@@ -37,6 +37,7 @@ public class ClimberActions : MonoBehaviour
     private FixedJoint2D dragJoint;
     private Rigidbody2D draggedBlockRb;
     [SerializeField] private float grabOffsetX = 0.5f;
+    [SerializeField] AudioClip JumpSound;
     public bool isDragging;
 
 
@@ -87,6 +88,7 @@ public class ClimberActions : MonoBehaviour
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             hasPressedJump = false;
             isJumping = true;
+            SFXManager.Instance.PlaySFX(JumpSound);
             animator.SetTrigger("jump");
         }
 

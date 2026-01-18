@@ -273,6 +273,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1693524098}
     - target: {fileID: 7274320803776015482, guid: 7648b66885a68de479132ac1e0021da9, type: 3}
+      propertyPath: powerupSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 87bcabcbbdc727a48a903b5541e3736e, type: 3}
+    - target: {fileID: 7274320803776015482, guid: 7648b66885a68de479132ac1e0021da9, type: 3}
       propertyPath: playerSpriteRenderer
       value: 
       objectReference: {fileID: 1686148047}
@@ -2556,6 +2560,10 @@ PrefabInstance:
       propertyPath: jumpTime
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 2976349492964754859, guid: ca389f2d5773a4fd6ad5105426bdef20, type: 3}
+      propertyPath: JumpSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 613c3c7c9af2b874c9d0b71e22bf9571, type: 3}
     - target: {fileID: 2976349492964754859, guid: ca389f2d5773a4fd6ad5105426bdef20, type: 3}
       propertyPath: jumpForce
       value: 6
